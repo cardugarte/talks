@@ -1,0 +1,119 @@
+---
+import { Bot, TrendingUp, Users, Heart, BarChart2, CheckCircle } from 'lucide-astro';
+---
+<!-- ── SLIDE 2: WOW MOMENT ── -->
+<div class="slide" data-index="1">
+  <div class="slide-num">02 / 17</div>
+  <div class="lbl">El resultado final</div>
+  <div class="title">Esto aprendés<br><em>hoy</em></div>
+
+  <div class="wow-telegram">
+    <div class="tg-header">
+      <span class="tg-avatar"><Bot size={28} color="var(--green)" /></span>
+      <div>
+        <div class="tg-name">Mi Agente Personal</div>
+        <div class="tg-status">online</div>
+      </div>
+    </div>
+    <div class="tg-messages">
+      <div class="tg-msg tg-agent tg-proactive">
+        <div class="tg-proactive-label"><BarChart2 size={12} /> Reporte semanal · X/Twitter</div>
+        <span class="tg-icon tg-green"><TrendingUp size={14} /></span> <strong>Impresiones:</strong> 48.200 <span class="tg-delta tg-up">+22%</span><br>
+        <span class="tg-icon"><Users size={14} /></span> <strong>Seguidores nuevos:</strong> 134 <span class="tg-delta tg-up">+18%</span><br>
+        <span class="tg-icon"><Heart size={14} /></span> <strong>Mejor post:</strong> "Agents at Work" — 892 likes<br>
+        <span class="tg-icon tg-muted"><BarChart2 size={14} /></span> <strong>Engagement rate:</strong> 4.7% <span class="tg-delta tg-down">−0.3%</span>
+      </div>
+      <div class="tg-msg tg-user">qué post debería escribir esta semana?</div>
+      <div class="tg-msg tg-agent">
+        Tu audiencia interactuó más con contenido sobre <strong>agentes en producción</strong> y <strong>casos reales</strong>. Te sugiero:<br>
+        <em>"Cómo mi agente automatizó mi standup diario"</em> — basado en lo que hiciste esta semana.
+      </div>
+    </div>
+  </div>
+
+  <div class="body" style="margin-top:20px;font-size:0.85rem;">Un agente tuyo. En tu Telegram. Con tus datos. <em>Running en tu máquina. 24/7.</em></div>
+</div>
+
+<style>
+.wow-telegram {
+  background: rgba(9,26,18,0.8);
+  border: 1px solid rgba(0,232,122,0.2);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 620px;
+  margin-top: 24px;
+  overflow: hidden;
+}
+.tg-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: rgba(0,232,122,0.06);
+  border-bottom: 1px solid rgba(0,232,122,0.1);
+}
+.tg-name { font-family: var(--font-m); font-size: 0.85rem; color: var(--text); font-weight: 700; }
+.tg-status { font-family: var(--font-m); font-size: 0.6rem; color: var(--green); letter-spacing: 0.08em; }
+.tg-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 20px;
+}
+.tg-msg {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  line-height: 1.8;
+  max-width: 88%;
+}
+.tg-user {
+  background: rgba(0,232,122,0.1);
+  border: 1px solid rgba(0,232,122,0.15);
+  color: var(--text);
+  align-self: flex-end;
+  font-family: var(--font-b);
+}
+.tg-agent {
+  background: rgba(15,35,24,0.9);
+  border: 1px solid rgba(0,212,255,0.15);
+  color: #8ab89e;
+  align-self: flex-start;
+  font-family: var(--font-b);
+}
+.tg-agent.tg-proactive {
+  border-color: rgba(0,232,122,0.2);
+  max-width: 100%;
+  text-align: left;
+}
+.tg-proactive-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-m);
+  font-size: 0.6rem;
+  color: var(--green);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
+.tg-agent strong { color: var(--text); }
+.tg-agent em { color: var(--cyan); font-style: normal; }
+.tg-icon {
+  display: inline-flex;
+  vertical-align: middle;
+  margin-right: 5px;
+  color: var(--muted);
+}
+.tg-icon.tg-muted { color: var(--muted); }
+.tg-icon.tg-green { color: var(--green); }
+.tg-delta {
+  font-family: var(--font-m);
+  font-size: 0.68rem;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+.tg-delta.tg-up { color: var(--green); background: rgba(0,232,122,0.1); }
+.tg-delta.tg-down { color: var(--red); background: rgba(255,85,119,0.08); }
+</style>

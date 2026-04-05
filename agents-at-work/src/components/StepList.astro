@@ -1,0 +1,20 @@
+---
+interface Props {
+  steps: { number: string; command?: string; description: string }[];
+  class?: string;
+}
+const { steps, class: className = '' } = Astro.props;
+---
+<div class:list={["w-full max-w-[700px] mt-6", className]}>
+  {steps.map((step) => (
+    <div class="flex items-start gap-5 py-3 border-b border-green/7 last:border-b-0">
+      <span class="font-display text-3xl font-black text-green min-w-[40px]">{step.number}</span>
+      <div>
+        {step.command && (
+          <code class="font-mono text-sm text-cyan block mb-1">{step.command}</code>
+        )}
+        <p class="text-sm text-muted leading-relaxed">{step.description}</p>
+      </div>
+    </div>
+  ))}
+</div>

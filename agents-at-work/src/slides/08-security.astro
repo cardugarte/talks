@@ -1,0 +1,97 @@
+---
+import { AlertTriangle, CheckCircle } from 'lucide-astro';
+---
+<!-- ── SLIDE 12: SEGURIDAD ── -->
+<div class="slide" data-index="11">
+  <div class="slide-num">12 / 17</div>
+  <div class="lbl">Lo que nadie dice</div>
+  <div class="title">Seguridad<br>y <em>límites reales</em></div>
+  <div class="warn">
+    <div class="wc d">
+      <h4><AlertTriangle size={13} style="display:inline;vertical-align:middle;margin-right:6px;" />Prompt injection</h4>
+      <p>Instrucciones maliciosas escondidas en contenido externo que el agente lee — y ejecuta sin saber que fue manipulado.</p>
+      <ul class="sec-list">
+        <li><strong>Email:</strong> texto blanco sobre fondo blanco con instrucciones ocultas en el cuerpo del mail</li>
+        <li><strong>Página web:</strong> instrucciones en comentarios HTML o SVG que el agente procesa al hacer scraping</li>
+        <li><strong>Archivo subido:</strong> un PDF con instrucciones en el footer o en metadata invisible</li>
+        <li><strong>Respuesta de API:</strong> campos JSON con instrucciones que el agente interpreta como contexto válido</li>
+      </ul>
+    </div>
+    <div class="wc s">
+      <h4><CheckCircle size={13} style="display:inline;vertical-align:middle;margin-right:6px;" />Protegé tus credenciales</h4>
+      <p>Si escribís una API key en un prompt o skill, queda en el historial del LLM y en los logs — cualquiera con acceso a esos archivos la ve. Las credenciales van en un solo lugar:</p>
+      <pre class="sec-env"><span class="sec-path"># ~/.openclaw/.env</span>
+OPENAI_API_KEY=sk-...
+TELEGRAM_BOT_TOKEN=123456:AAH...
+GMAIL_CLIENT_SECRET=GOCSPX-...</pre>
+      <ul class="sec-list" style="margin-top:6px;">
+        <li>En skills, referenciás con <code class="sec-code">$OPENAI_API_KEY</code> — nunca el valor</li>
+        <li>Rotá el token si el agente tuvo acceso a una fuente no confiable</li>
+      </ul>
+    </div>
+    <div class="wc d">
+      <h4><AlertTriangle size={13} style="display:inline;vertical-align:middle;margin-right:6px;" />Permisos excesivos</h4>
+      <p>Si el agente puede borrar archivos, enviar emails y hacer deploys, un error o ataque puede tener consecuencias irreversibles.</p>
+      <ul class="sec-list">
+        <li>Habilitá solo las tools que cada skill necesita</li>
+        <li>Configurá confirmación explícita para acciones destructivas</li>
+      </ul>
+    </div>
+    <div class="wc s">
+      <h4><CheckCircle size={13} style="display:inline;vertical-align:middle;margin-right:6px;" />Auditá lo que hace</h4>
+      <p>OpenClaw guarda logs de cada acción ejecutada. Si algo sale mal, podés ver exactamente qué hizo el agente y por qué.</p>
+      <ul class="sec-list">
+        <li>Revisá los logs regularmente al principio</li>
+        <li>El código es open source — podés auditar cualquier skill antes de instalarla</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style>
+.sec-list {
+  list-style: none;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sec-list li {
+  font-size: 0.78rem;
+  color: var(--muted);
+  padding-left: 12px;
+  position: relative;
+  line-height: 1.5;
+}
+.sec-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: inherit;
+  opacity: 0.6;
+}
+.wc.s .sec-list li { color: #4a9e6e; }
+.wc.d .sec-list li { color: #a05060; }
+.sec-env {
+  font-family: var(--font-m);
+  font-size: 0.72rem;
+  line-height: 1.7;
+  background: rgba(0,0,0,0.25);
+  border-left: 2px solid rgba(0,232,122,0.3);
+  padding: 7px 10px;
+  border-radius: 4px;
+  margin-top: 8px;
+  color: #4a9e6e;
+}
+.sec-path {
+  color: var(--muted);
+  opacity: 0.7;
+}
+.sec-code {
+  font-family: var(--font-m);
+  font-size: 0.75rem;
+  background: rgba(0,0,0,0.2);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+</style>

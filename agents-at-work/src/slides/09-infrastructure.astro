@@ -1,0 +1,49 @@
+---
+import { CheckCircle } from 'lucide-astro';
+---
+<!-- ── SLIDE 6: INSTALACIÓN ── -->
+<div class="slide" data-index="5">
+  <div class="slide-num">06 / 17</div>
+  <div class="lbl">Hands on</div>
+  <div class="title"><em>Instalación</em></div>
+
+  <div class="two-col" style="margin-top:24px;max-width:960px;">
+    <div>
+      <div class="code" style="margin-top:0;max-width:100%;">
+        <pre><span class="cm"># 1. Prerequisitos</span>
+<span class="cm">#    Node ≥ 22   +   Docker</span>
+
+<span class="cm"># 2. Instalá OpenClaw</span>
+<span class="ca">$</span> <span class="cg">npm</span> install -g openclaw@latest
+
+<span class="cm"># 3. Iniciá el wizard</span>
+<span class="ca">$</span> <span class="cg">openclaw</span> onboard --install-daemon
+
+<span class="cg">✓ Gateway configurado</span>
+<span class="cg">✓ Daemon activo (systemd/launchd)</span>
+<span class="cg">✓ Agente online</span></pre>
+      </div>
+    </div>
+    <div class="ilist" style="margin-top:0;">
+      <ul>
+        <li>
+          <span class="ic step-num">1</span>
+          <div><strong>Instalá</strong> el paquete global con npm</div>
+        </li>
+        <li>
+          <span class="ic step-num">2</span>
+          <div><strong>Corré onboard</strong> — wizard interactivo. Elige modelo y canales.</div>
+        </li>
+        <li>
+          <span class="ic step-num">3</span>
+          <div><strong>El daemon</strong> se registra como servicio del sistema. Corre solo.</div>
+        </li>
+        <li>
+          <span class="ic"><CheckCircle size={20} color="var(--green)" /></span>
+          <div>Si ves el agente online → <em>ya terminaste.</em></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
