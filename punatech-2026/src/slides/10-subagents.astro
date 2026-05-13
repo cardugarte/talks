@@ -1,0 +1,56 @@
+---
+---
+<div class="slide">
+  <div class="slide-num">10 / 17</div>
+  <div class="lbl">Capa 2</div>
+  <h2 class="title"><em>Sub-agentes</em></h2>
+  <p class="body" style="text-align:center;margin-bottom:16px;">
+    El agente principal coordina. Los sub-agentes ejecutan <strong>en paralelo</strong>.
+  </p>
+
+  <div class="sa-mermaid-wrap">
+    <div class="mermaid">
+sequenceDiagram
+    participant U as 👤 Vos
+    participant O as 🎯 Orquestador
+    participant CR as 🔍 Code Reviewer
+    participant TR as 🧪 Test Runner
+    participant SA as 🔐 Security Agent
+
+    U->>O: "Revisá este PR"
+    par En paralelo
+        O->>CR: Analizá el diff
+    and
+        O->>TR: Corré los tests
+    and
+        O->>SA: Buscá vulnerabilidades
+    end
+    CR-->>O: 3 issues encontrados
+    TR-->>O: Todos los tests pasan
+    SA-->>O: Sin vulnerabilidades
+    O-->>U: Resumen del review listo
+    </div>
+  </div>
+
+  <p class="body" style="font-size:0.85rem;text-align:center;margin-top:10px;">
+    Lo que tardaría 15 min en secuencia, <em>tarda 3 en paralelo.</em>
+  </p>
+</div>
+
+<style>
+/* ══ SLIDE 10 — SUBAGENTS MERMAID ══ */
+.sa-mermaid-wrap {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+}
+.sa-mermaid-wrap .mermaid {
+  display: flex;
+  justify-content: center;
+}
+.sa-mermaid-wrap svg {
+  max-height: 280px;
+  width: auto;
+  max-width: 100%;
+}
+</style>

@@ -1,0 +1,159 @@
+---
+---
+<div class="slide">
+  <div class="slide-num">14 / 17</div>
+  <div class="lbl">Capa 6</div>
+  <h2 class="title"><em>Obsidian</em></h2>
+
+  <p class="body" style="text-align:center;margin-bottom:12px;">
+    La biblioteca del agente. Un vault de Obsidian como <strong>segunda mente conectada</strong>.
+  </p>
+
+  <div class="obs-layout">
+    <div id="cy-obsidian"></div>
+
+    <ul class="ilist obs-ilist">
+      <li><span class="ic">📄</span><span><strong>Documentación</strong> — specs, ADRs, runbooks del proyecto</span></li>
+      <li><span class="ic">🔗</span><span><strong>Links entre conceptos</strong> — el agente navega el grafo para entender contexto</span></li>
+      <li><span class="ic">📓</span><span><strong>Notas de reuniones</strong> — decisiones y razonamientos</span></li>
+      <li><span class="ic">🧩</span><span><strong>Patrones</strong> — cómo se resuelven problemas en este equipo</span></li>
+    </ul>
+  </div>
+
+  <p class="body" style="font-size:0.85rem;text-align:center;margin-top:8px;">
+    Lo que Engram guarda en <em>sesión</em>, Obsidian lo guarda en <em>conocimiento permanente</em>.
+  </p>
+</div>
+
+<style>
+/* ══ SLIDE 14 — OBSIDIAN CYTOSCAPE ══ */
+.obs-layout {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+#cy-obsidian {
+  width: 320px;
+  height: 240px;
+  flex-shrink: 0;
+  background: rgba(5,16,12,0.85);
+  border: 1px solid rgba(0,232,122,0.15);
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0,232,122,0.06);
+}
+.obs-ilist {
+  margin-top: 0;
+  flex: 1;
+  max-width: 420px;
+}
+</style>
+
+<script>
+  import cytoscape from 'cytoscape';
+
+  const slide = document.querySelector('.slide:has(#cy-obsidian)');
+
+  function initCy() {
+    const container = document.getElementById('cy-obsidian');
+    if (!container || (container as any)._cyInitialized) return;
+    (container as any)._cyInitialized = true;
+
+    const cy = cytoscape({
+      container,
+      elements: [
+        { data: { id: 'proyecto', label: 'Proyecto' } },
+        { data: { id: 'arch',    label: 'Arquitectura' } },
+        { data: { id: 'stack',   label: 'Stack' } },
+        { data: { id: 'equipo',  label: 'Equipo' } },
+        { data: { id: 'apis',    label: 'APIs' } },
+        { data: { id: 'docs',    label: 'Docs' } },
+        { data: { id: 'bugs',    label: 'Bugs' } },
+        { data: { source: 'proyecto', target: 'arch' } },
+        { data: { source: 'proyecto', target: 'stack' } },
+        { data: { source: 'proyecto', target: 'equipo' } },
+        { data: { source: 'proyecto', target: 'apis' } },
+        { data: { source: 'proyecto', target: 'docs' } },
+        { data: { source: 'arch',    target: 'stack' } },
+        { data: { source: 'docs',    target: 'bugs' } },
+        { data: { source: 'equipo',  target: 'bugs' } },
+      ],
+      style: [
+        {
+          selector: 'node',
+          style: {
+            'background-color': '#0f2318',
+            'border-width': 1.5,
+            'border-color': '#00e87a',
+            'label': 'data(label)',
+            'color': '#e0f2e9',
+            'font-family': 'JetBrains Mono, monospace',
+            'font-size': '9px',
+            'text-valign': 'center',
+            'text-halign': 'center',
+            'width': 56,
+            'height': 56,
+            'shape': 'roundrectangle',
+          },
+        },
+        {
+          selector: 'node[id="proyecto"]',
+          style: {
+            'background-color': 'rgba(0,232,122,0.1)',
+            'border-color': '#00e87a',
+            'border-width': 2,
+            'font-size': '10px',
+            'font-weight': 'bold',
+            'width': 70,
+            'height': 70,
+          },
+        },
+        {
+          selector: 'edge',
+          style: {
+            'width': 1,
+            'line-color': 'rgba(0,232,122,0.25)',
+            'curve-style': 'bezier',
+            'target-arrow-color': 'rgba(0,232,122,0.4)',
+            'target-arrow-shape': 'triangle',
+            'arrow-scale': 0.8,
+          },
+        },
+      ],
+      layout: {
+        name: 'cose',
+        animate: true,
+        animationDuration: 800,
+        randomize: false,
+        nodeRepulsion: () => 8000,
+        idealEdgeLength: () => 70,
+        gravity: 0.8,
+      },
+      userZoomingEnabled: false,
+      userPanningEnabled: false,
+      boxSelectionEnabled: false,
+    });
+
+    // Glow effect on hover
+    cy.on('mouseover', 'node', e => {
+      e.target.style('border-color', '#00ff61');
+      e.target.style('background-color', 'rgba(0,232,122,0.2)');
+    });
+    cy.on('mouseout', 'node', e => {
+      const id = e.target.id();
+      e.target.style('border-color', id === 'proyecto' ? '#00e87a' : '#00e87a');
+      e.target.style('background-color', id === 'proyecto' ? 'rgba(0,232,122,0.1)' : '#0f2318');
+    });
+  }
+
+  if (slide?.classList.contains('active')) {
+    initCy();
+  } else {
+    const obs = new MutationObserver(() => {
+      if (slide?.classList.contains('active')) { obs.disconnect(); setTimeout(initCy, 100); }
+    });
+    if (slide) obs.observe(slide, { attributes: true, attributeFilter: ['class'] });
+  }
+</script>

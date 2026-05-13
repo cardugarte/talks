@@ -1,0 +1,72 @@
+---
+interface Props {
+  total: number;
+}
+const { total } = Astro.props;
+---
+
+<div
+  id="progress"
+  class="fixed top-0 left-0 h-0.5 z-50"
+  style="background: linear-gradient(to right, var(--color-green), var(--color-purple)); box-shadow: 0 0 10px var(--color-green);"
+></div>
+
+<nav id="nav" class="fixed bottom-7 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-50" aria-label="Navegación de slides">
+  {Array.from({ length: total }, (_, i) => (
+    <button
+      class:list={["nav-dot w-1.5 h-1.5 rounded-full border cursor-pointer transition-all duration-300", i === 0 ? "bg-green border-green scale-150 shadow-[0_0_6px_var(--color-green)]" : "bg-stone border-muted"]}
+      data-index={i}
+      aria-label={`Slide ${i + 1}`}
+    />
+  ))}
+</nav>
+
+<div class="fixed bottom-5 right-10 font-mono text-[0.6rem] text-muted opacity-45 tracking-wider">
+  ← → para navegar
+</div>
+
+<script define:vars={{ total }}>
+  let cur = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.nav-dot');
+  const prog = document.getElementById('progress');
+
+  function update() {
+    prog.style.width = `${((cur + 1) / total) * 100}%`;
+    dots.forEach((d, i) => {
+      d.classList.toggle('bg-green', i === cur);
+      d.classList.toggle('border-green', i === cur);
+      d.classList.toggle('scale-150', i === cur);
+      d.classList.toggle('shadow-[0_0_6px_var(--color-green)]', i === cur);
+      d.classList.toggle('bg-stone', i !== cur);
+      d.classList.toggle('border-muted', i !== cur);
+    });
+  }
+
+  function goTo(idx) {
+    if (idx === cur || idx < 0 || idx >= total) return;
+    const prev = cur;
+    slides[prev].classList.add('exit');
+    setTimeout(() => slides[prev].classList.remove('active', 'exit'), 350);
+    cur = idx;
+    slides[cur].classList.add('active');
+    update();
+  }
+
+  dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goTo(cur + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(cur - 1); }
+  });
+
+  let tx = 0;
+  document.addEventListener('touchstart', (e) => { tx = e.touches[0].clientX; });
+  document.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (dx < -80) goTo(cur + 1);
+    if (dx > 80) goTo(cur - 1);
+  });
+
+  update();
+</script>

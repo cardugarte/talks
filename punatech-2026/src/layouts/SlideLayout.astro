@@ -1,0 +1,190 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+}
+const { title = 'De chatbot a colega — PunaTech 2026' } = Astro.props;
+---
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;700&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="tsparticles-bg"></div>
+
+<svg class="mountains" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="0,400 0,280 120,180 240,260 360,120 480,200 600,80 720,160 840,40 960,140 1080,60 1200,150 1320,90 1440,170 1440,400" fill="#00e87a"/>
+  <polygon points="0,400 0,320 100,250 200,300 320,200 440,270 560,150 680,230 800,100 920,200 1040,130 1160,220 1280,160 1440,240 1440,400" fill="#007a40"/>
+  <polygon points="0,400 0,360 80,320 200,350 340,280 460,330 580,260 700,310 820,240 940,290 1060,250 1180,300 1300,260 1440,310 1440,400" fill="#003d20"/>
+</svg>
+
+<div id="progress"></div>
+<div id="deck">
+  <slot />
+</div>
+
+<div id="nav"></div>
+<div id="hint">← → para navegar</div>
+
+<script>
+  import gsap from 'gsap';
+  import { tsParticles } from '@tsparticles/engine';
+  import { loadSlim } from '@tsparticles/slim';
+  import mermaid from 'mermaid';
+
+  // ── TSPARTICLES ──
+  async function initParticles() {
+    await loadSlim(tsParticles);
+    await tsParticles.load({
+      id: 'tsparticles-bg',
+      options: {
+        background: { color: { value: 'transparent' } },
+        fpsLimit: 60,
+        particles: {
+          number: { value: 80, density: { enable: true, area: 900 } },
+          color: { value: '#00e87a' },
+          opacity: { value: { min: 0.04, max: 0.18 } },
+          size: { value: { min: 0.8, max: 1.8 } },
+          links: {
+            enable: true,
+            distance: 155,
+            color: '#00e87a',
+            opacity: 0.07,
+            width: 0.7,
+          },
+          move: {
+            enable: true,
+            speed: 0.45,
+            direction: 'none',
+            random: true,
+            outModes: { default: 'bounce' },
+          },
+        },
+        detectRetina: true,
+      },
+    });
+  }
+
+  // ── MERMAID ──
+  mermaid.initialize({
+    startOnLoad: false,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#0f2318',
+      primaryTextColor: '#e0f2e9',
+      primaryBorderColor: '#00e87a',
+      lineColor: '#4a7a5e',
+      secondaryColor: '#091a12',
+      tertiaryColor: '#0f2318',
+      background: 'transparent',
+      nodeBorder: '#00e87a',
+      edgeLabelBackground: '#091a12',
+      fontFamily: "'JetBrains Mono', monospace",
+      fontSize: '13px',
+      actorBkg: '#0f2318',
+      actorBorder: '#00e87a',
+      actorTextColor: '#e0f2e9',
+      activationBorderColor: '#00e87a',
+      activationBkgColor: '#091a12',
+      sequenceNumberColor: '#00e87a',
+      signalColor: '#4a7a5e',
+      signalTextColor: '#e0f2e9',
+      labelBoxBkgColor: '#0f2318',
+      labelBoxBorderColor: '#00e87a',
+      labelTextColor: '#e0f2e9',
+      loopTextColor: '#e0f2e9',
+      noteBorderColor: '#4a7a5e',
+      noteBkgColor: '#091a12',
+      noteTextColor: '#e0f2e9',
+    },
+  });
+
+  // ── GSAP NAVIGATION ──
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const total = slides.length;
+  const navEl = document.getElementById('nav')!;
+  const prog = document.getElementById('progress')!;
+
+  // Initial state
+  gsap.set(slides, { opacity: 0, y: 20 });
+  slides.forEach(s => ((s as HTMLElement).style.pointerEvents = 'none'));
+
+  // Build nav dots
+  slides.forEach((_, j) => {
+    const d = document.createElement('div');
+    d.className = 'ndot' + (j === 0 ? ' active' : '');
+    d.addEventListener('click', () => goTo(j));
+    navEl.appendChild(d);
+  });
+
+  let cur = 0;
+
+  function animateIn(slide: Element) {
+    slide.classList.add('active');
+    (slide as HTMLElement).style.pointerEvents = 'all';
+    gsap.to(slide, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' });
+
+    const targets = slide.querySelectorAll(
+      '.card, .ic-card, .wc, .ilist li, .loop-step, .col-step, ' +
+      '.anat-jsc-item, .fa-component, .sa-agent, .mcp-tool, .acp-agent, ' +
+      '.stat-num, .quote, .llm-box, .obs-graph, .engram-visual'
+    );
+    if (targets.length) {
+      gsap.fromTo(targets,
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.4, stagger: 0.07, delay: 0.18, ease: 'power2.out' }
+      );
+    }
+  }
+
+  function goTo(idx: number) {
+    if (idx === cur) return;
+    const prev = cur;
+    cur = idx;
+
+    (slides[prev] as HTMLElement).style.pointerEvents = 'none';
+    gsap.to(slides[prev], {
+      opacity: 0, y: -16, duration: 0.3, ease: 'power2.in',
+      onComplete: () => { slides[prev].classList.remove('active'); gsap.set(slides[prev], { y: 20 }); },
+    });
+
+    gsap.delayedCall(0.18, () => animateIn(slides[cur]));
+    upd();
+  }
+
+  function upd() {
+    prog.style.width = ((cur + 1) / total * 100) + '%';
+    document.querySelectorAll('.ndot').forEach((d, j) => d.classList.toggle('active', j === cur));
+  }
+
+  const next = () => { if (cur < total - 1) goTo(cur + 1); };
+  const prev = () => { if (cur > 0) goTo(cur - 1); };
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+  });
+
+  let tx = 0;
+  document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; });
+  document.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (dx < -50) next();
+    if (dx > 50) prev();
+  });
+
+  // ── INIT ──
+  animateIn(slides[0]);
+  upd();
+  initParticles();
+  mermaid.run();
+</script>
+
+</body>
+</html>

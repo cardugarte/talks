@@ -1,0 +1,9 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+<div class:list={["bg-bg/95 border border-cyan/15 rounded-lg px-6 py-5 text-left w-full", className]}>
+  <pre class="font-mono text-[0.85rem] leading-loose"><slot /></pre>
+</div>

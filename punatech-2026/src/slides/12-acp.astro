@@ -1,0 +1,113 @@
+---
+---
+<div class="slide">
+  <div class="slide-num">12 / 17</div>
+  <div class="lbl">Capa 4</div>
+  <h2 class="title">ACP — <em>Agent Communication Protocol</em></h2>
+
+  <p class="body" style="text-align:center;margin-bottom:16px;">
+    El idioma común entre agentes. Permite que sistemas de <strong>distintos proveedores se hablen</strong>.
+  </p>
+
+  <div class="acp-diagram">
+    <div class="acp-agent" style="border-color:rgba(0,232,122,0.35);">
+      <div style="font-size:1.4rem;">🦀</div>
+      <div class="acp-name">OpenClaw Agent</div>
+      <div class="acp-vendor">Anthropic</div>
+    </div>
+
+    <div class="acp-channel">
+      <div class="acp-line"></div>
+      <div class="acp-proto">
+        <span style="color:var(--cyan);">ACP</span>
+      </div>
+      <div class="acp-line"></div>
+    </div>
+
+    <div class="acp-agent" style="border-color:rgba(0,212,255,0.35);">
+      <div style="font-size:1.4rem;">⚡</div>
+      <div class="acp-name">Hermes Agent</div>
+      <div class="acp-vendor">Google / OpenAI</div>
+    </div>
+  </div>
+
+  <div class="two-col" style="margin-top:20px;gap:16px;">
+    <div class="card">
+      <h3>Interoperabilidad</h3>
+      <p>Un agente de Anthropic puede delegar tareas a un agente de OpenAI. <strong>Sin código intermedio.</strong></p>
+    </div>
+    <div class="card">
+      <h3>Estándar abierto</h3>
+      <p>IBM, Cisco, Salesforce, Anthropic — todos adoptaron ACP. <strong>Es el HTTP de los agentes.</strong></p>
+    </div>
+  </div>
+
+  <div class="acp-msg">
+    <span class="acp-from">openclaw-agent</span>
+    <span class="acp-arrow"> → </span>
+    <span class="acp-to">hermes-agent</span>
+    <span class="acp-content"> : "Necesito que analices este dataset y me pases el resultado"</span>
+  </div>
+</div>
+
+<style>
+/* ══ SLIDE 12 — ACP ══ */
+.acp-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 8px auto 0;
+}
+.acp-agent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15,35,24,0.7);
+  border: 2px solid rgba(0,232,122,0.15);
+  border-radius: 12px;
+  padding: 16px 24px;
+  min-width: 140px;
+  text-align: center;
+}
+.acp-name { font-family: var(--font-m); font-size: 0.62rem; color: var(--text); letter-spacing: 0.08em; text-transform: uppercase; }
+.acp-vendor { font-family: var(--font-m); font-size: 0.52rem; color: var(--muted); margin-top: 2px; }
+
+.acp-channel {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 0;
+}
+.acp-line {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(to right, rgba(0,212,255,0.2), rgba(0,212,255,0.5));
+}
+.acp-proto {
+  background: rgba(0,212,255,0.08);
+  border: 1px solid rgba(0,212,255,0.35);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-family: var(--font-m);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.acp-msg {
+  margin-top: 16px;
+  background: rgba(5,16,12,0.9);
+  border: 1px solid rgba(0,212,255,0.15);
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-family: var(--font-m);
+  font-size: 0.75rem;
+  max-width: 680px;
+}
+.acp-from { color: var(--green); }
+.acp-arrow { color: var(--muted); }
+.acp-to { color: var(--cyan); }
+.acp-content { color: var(--muted); }
+</style>
