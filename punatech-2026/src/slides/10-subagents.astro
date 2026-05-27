@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL;
 ---
 <div class="slide">
   <div class="slide-num">10 / 17</div>
@@ -8,28 +9,22 @@
     El agente principal coordina. Los sub-agentes ejecutan <strong>en paralelo</strong>.
   </p>
 
-  <div class="sa-mermaid-wrap">
-    <div class="mermaid">
-sequenceDiagram
-    participant U as 👤 Vos
-    participant O as 🎯 Orquestador
-    participant CR as 🔍 Code Reviewer
-    participant TR as 🧪 Test Runner
-    participant SA as 🔐 Security Agent
+  <div class="sa-layout">
+    <img
+      class="sa-img"
+      src={`${base}subagentes.jpg`.replace(/\/+/g, '/')}
+      alt="Orquestador central rodeado de sub-agentes ejecutando tareas especializadas en paralelo"
+      loading="lazy"
+      decoding="async"
+    />
 
-    U->>O: "Revisá este PR"
-    par En paralelo
-        O->>CR: Analizá el diff
-    and
-        O->>TR: Corré los tests
-    and
-        O->>SA: Buscá vulnerabilidades
-    end
-    CR-->>O: 3 issues encontrados
-    TR-->>O: Todos los tests pasan
-    SA-->>O: Sin vulnerabilidades
-    O-->>U: Resumen del review listo
-    </div>
+    <ul class="ilist sa-ilist">
+      <li><span class="ic">🎨</span><span><strong>Frontend</strong> — UI, componentes, accesibilidad</span></li>
+      <li><span class="ic">⚙️</span><span><strong>Backend</strong> — APIs, lógica de negocio, integraciones</span></li>
+      <li><span class="ic">🗄️</span><span><strong>Database</strong> — schemas, migraciones, queries</span></li>
+      <li><span class="ic">🔐</span><span><strong>Security</strong> — vulnerabilidades, secretos, auth</span></li>
+      <li><span class="ic">🧪</span><span><strong>Testing</strong> — unit, e2e, regresiones</span></li>
+    </ul>
   </div>
 
   <p class="body" style="font-size:0.85rem;text-align:center;margin-top:10px;">
@@ -38,19 +33,34 @@ sequenceDiagram
 </div>
 
 <style>
-/* ══ SLIDE 10 — SUBAGENTS MERMAID ══ */
-.sa-mermaid-wrap {
-  max-width: 720px;
+/* ══ SLIDE 10 — SUBAGENTS ══ */
+.sa-layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 28px;
   width: 100%;
+  max-width: 880px;
   margin: 0 auto;
 }
-.sa-mermaid-wrap .mermaid {
-  display: flex;
-  justify-content: center;
+.sa-img {
+  width: 240px;
+  height: auto;
+  max-height: 44vh;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(0,232,122,0.15);
+  box-shadow:
+    0 0 50px rgba(0,232,122,0.10),
+    0 0 80px rgba(138,43,226,0.08);
 }
-.sa-mermaid-wrap svg {
-  max-height: 280px;
+.sa-ilist {
+  margin-top: 0;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 420px;
   width: auto;
-  max-width: 100%;
 }
 </style>
