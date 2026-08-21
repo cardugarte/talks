@@ -1,10 +1,7 @@
 ---
-import SlideShell from '@talks/shared/components/SlideShell.astro';
-import Terminal from '@talks/shared/components/Terminal.astro';
 const base = import.meta.env.BASE_URL;
 ---
 <div class="slide slide-cover">
-  <SlideShell number="01" total="19" />
   <div class="cover-qr-corner" aria-label="Escaneá para conectar con La Zuricata en redes">
     <img src={`${base}/lazuricata.svg`.replace(/\/+/g, '/')} alt="QR de redes sociales de La Zuricata" />
     <span class="cover-qr-corner-lbl">conectá</span>
@@ -30,12 +27,13 @@ const base = import.meta.env.BASE_URL;
     <div class="speaker-meta">Cibersecurity &amp; Artificial Intelligence · Bitcoin · Nostr <span style="color:var(--green)">zuricata.dev</span></div>
   </div>
 
-  <Terminal
-    command={'ai-agent run --objetivo "ser tu colega digital"'}
-    outputs={[{ text: '→ Inicializando agente...' }, { text: '✓ Listo para trabajar con vos', highlight: true }]}
-    id="cover-terminal"
-    class="cover-cursor-block"
-  />
+  <div class="cover-cursor-block">
+    <span class="t-prompt">➜ </span>
+    <span id="typed-cmd" class="t-cmd"></span>
+    <span class="cursor" id="cursor-1"></span>
+    <div id="out-1" class="t-out" style="opacity:0">→ Inicializando agente...</div>
+    <div id="out-2" class="t-out hi" style="opacity:0">✓ Listo para trabajar con vos</div>
+  </div>
 </div>
 
 <style>
@@ -182,3 +180,39 @@ const base = import.meta.env.BASE_URL;
   .cover-avatar { margin-bottom: 2px; }
 }
 </style>
+
+<script>
+  const cmd = 'ai-agent run --objetivo "ser tu colega digital"';
+  const slide = document.querySelector('.slide');
+
+  function startTyping() {
+    const te = document.getElementById('typed-cmd');
+    const ce = document.getElementById('cursor-1');
+    if (!te || !ce) return;
+    let i = 0;
+    function type() {
+      if (i < cmd.length) { te.textContent += cmd[i++]; setTimeout(type, 32 + Math.random() * 28); }
+      else {
+        ce.style.display = 'none';
+        setTimeout(() => {
+          const o1 = document.getElementById('out-1');
+          if (o1) { o1.style.opacity = '1'; o1.style.transition = 'opacity 0.5s'; }
+          setTimeout(() => {
+            const o2 = document.getElementById('out-2');
+            if (o2) { o2.style.opacity = '1'; o2.style.transition = 'opacity 0.5s'; }
+          }, 800);
+        }, 400);
+      }
+    }
+    setTimeout(type, 800);
+  }
+
+  if (slide?.classList.contains('active')) {
+    startTyping();
+  } else {
+    const obs = new MutationObserver(() => {
+      if (slide?.classList.contains('active')) { obs.disconnect(); startTyping(); }
+    });
+    if (slide) obs.observe(slide, { attributes: true, attributeFilter: ['class'] });
+  }
+</script>

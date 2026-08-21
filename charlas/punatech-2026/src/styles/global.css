@@ -458,3 +458,41 @@ body::before {
   }
   #hint { display: none; }
 }
+
+/* ══════════════════════════════════
+   PROJECTION — COMPACT HEIGHT (≤760px)
+   Mantiene el contenido dentro de 720px sin alterar desktop normal.
+══════════════════════════════════ */
+@media (max-height: 760px) {
+  .slide {
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+  }
+
+  .title { margin-bottom: 16px; }
+
+  .quote {
+    margin-top: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .body { line-height: 1.5; }
+
+  .usage-figure img { max-height: 58vh; }
+
+  .two-col { margin-top: 18px; }
+
+  .ilist li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 1.25;
+  }
+
+  .code { margin-top: 16px; padding-top: 18px; padding-bottom: 18px; }
+  .code pre { line-height: 1.5; }
+
+  .gloss-grid { gap: 10px 16px; }
+  .gloss-item { padding: 10px 16px; }
+  .gloss-head { margin-bottom: 4px; padding-bottom: 3px; }
+}
