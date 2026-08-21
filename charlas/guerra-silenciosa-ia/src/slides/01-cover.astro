@@ -1,0 +1,89 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+---
+<div class="slide">
+  <SlideShell number="01" total="01" label="Cover" />
+
+  <div class="cover-badge">Charla · 20 minutos</div>
+
+  <h1 class="cover-title">
+    La <span class="g">guerra silenciosa</span><br />que definirá quién
+    controla la IA
+  </h1>
+  <p class="cover-tagline">
+    Chips, centros de datos, modelos y poder geopolítico
+  </p>
+
+  <div class="cover-speaker">
+    <div class="speaker-line">
+      <span class="speaker-prompt">$ whoami</span>
+      <span class="speaker-arrow"> → </span>
+      <span class="speaker-name">La Zuricata</span>
+    </div>
+    <div class="speaker-meta">
+      Cibersecurity &amp; Artificial Intelligence · Bitcoin · Nostr
+      <span style="color:var(--green)">zuricata.dev</span>
+    </div>
+  </div>
+</div>
+
+<style>
+.cover-badge {
+  font-family: var(--font-m);
+  font-size: 0.92rem;
+  color: #8ab89e;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: 1px solid rgba(0,232,122,0.25);
+  background: rgba(0,232,122,0.04);
+  padding: 9px 20px;
+  border-radius: 999px;
+  margin-bottom: 30px;
+}
+.cover-title {
+  font-family: var(--font-d);
+  font-size: clamp(1.8rem, 4vw, 3.6rem);
+  font-weight: 900;
+  line-height: 1.08;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  margin-bottom: 18px;
+}
+.cover-title .g { color: var(--green); }
+.cover-tagline {
+  font-family: var(--font-b);
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  color: #8ab89e;
+  line-height: 1.25;
+  max-width: 560px;
+}
+.cover-speaker {
+  margin-top: 42px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.speaker-line {
+  font-family: var(--font-m);
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+}
+.speaker-prompt { color: var(--green); }
+.speaker-arrow  { color: var(--muted); }
+.speaker-name   { color: var(--text); font-weight: 700; }
+.speaker-meta {
+  font-family: var(--font-m);
+  font-size: 1.05rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 768px) {
+  .cover-badge { font-size: 0.7rem; padding: 6px 14px; letter-spacing: 0.16em; margin-bottom: 18px; }
+  .cover-title { font-size: clamp(1.4rem, 7vw, 2.2rem); }
+  .cover-tagline { font-size: clamp(0.95rem, 4vw, 1.15rem); }
+  .cover-speaker { margin-top: 28px; }
+  .speaker-meta { font-size: 0.8rem; }
+}
+</style>

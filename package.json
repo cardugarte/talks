@@ -6,7 +6,8 @@
   "workspaces": [
     "shared",
     "charlas/punatech-2026",
-    "charlas/agents-at-work"
+    "charlas/agents-at-work",
+    "charlas/guerra-silenciosa-ia"
   ],
   "scripts": {
     "build:all": "bash scripts/build-all.sh",
