@@ -1,0 +1,8 @@
+// @ts-check
+import { defineConfig } from "astro/config";
+
+// https://astro.build/config
+export default defineConfig({
+  site: "https://cardugarte.github.io",
+  base: "/talks/agents-at-work",
+});

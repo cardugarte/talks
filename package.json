@@ -5,7 +5,8 @@
   "packageManager": "bun@1.3.14",
   "workspaces": [
     "shared",
-    "charlas/punatech-2026"
+    "charlas/punatech-2026",
+    "charlas/agents-at-work"
   ],
   "scripts": {
     "build:all": "bash scripts/build-all.sh",

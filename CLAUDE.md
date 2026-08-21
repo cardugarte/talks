@@ -16,7 +16,7 @@ Run a deck command from its own directory with `bun run dev`, `bun run build`, o
 
 The repository root is `presentations/talks/`. Every published deck is an independent Astro 6 single-route project under `charlas/<slug>/`. Its `astro.config.mjs` owns the GitHub Pages base path: `/talks/<slug>/`.
 
-The root `package.json` intentionally uses an explicit workspace list. `charlas/agents-at-work/` is not a workspace and must not be included in builds until it is deliberately migrated.
+The root `package.json` intentionally uses an explicit workspace list. Both `charlas/punatech-2026/` and the migrated `charlas/agents-at-work/` workspace are included in `build:all`.
 
 ## Shared design system
 

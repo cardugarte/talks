@@ -8,6 +8,3 @@ site/
 charlas/*/node_modules/
 charlas/*/dist/
 charlas/*/.astro/
-
-# Pendiente de migración al design system compartido
-charlas/agents-at-work/

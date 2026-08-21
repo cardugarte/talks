@@ -22,7 +22,7 @@ bun run --cwd charlas/mi-charla dev
 
 The generator creates the minimum Astro deck, uses `/talks/mi-charla/` as its base path, and adds the new project to the explicit root workspaces list. Add its landing card and publish entry to the deploy workflow when it is ready.
 
-`charlas/agents-at-work/` is intentionally outside the workspaces list. It was moved without changing its contents and is not built by the monorepo.
+`charlas/agents-at-work/` is a migrated workspace, published at `/talks/agents-at-work/` and included in the monorepo build.
 
 ## Deploy
 

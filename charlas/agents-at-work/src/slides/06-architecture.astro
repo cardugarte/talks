@@ -1,0 +1,49 @@
+---
+import { Smartphone, Settings, Brain, Wrench, BarChart2 } from 'lucide-astro';
+---
+<!-- ── SLIDE 7: GATEWAY LOOP ── -->
+<div class="slide" data-index="6">
+  <div class="slide-num">07 / 17</div>
+  <div class="lbl">Arquitectura</div>
+  <div class="title">El <em>Gateway</em>:<br>cerebro central</div>
+
+  <div class="loop" style="margin-top:28px;">
+    <div class="loop-step">
+      <div class="loop-icon"><Smartphone size={24} /></div>
+      <div class="loop-lbl">Canal<br><span style="font-size:0.5rem;color:var(--muted)">Telegram</span></div>
+    </div>
+    <div class="loop-arr"></div>
+    <div class="loop-step">
+      <div class="loop-icon"><Settings size={24} /></div>
+      <div class="loop-lbl">Gateway<br><span style="font-size:0.5rem;color:var(--muted)">Orquesta</span></div>
+    </div>
+    <div class="loop-arr"></div>
+    <div class="loop-step">
+      <div class="loop-icon"><Brain size={24} /></div>
+      <div class="loop-lbl">LLM<br><span style="font-size:0.5rem;color:var(--muted)">Razona</span></div>
+    </div>
+    <div class="loop-arr"></div>
+    <div class="loop-step">
+      <div class="loop-icon"><Wrench size={24} /></div>
+      <div class="loop-lbl">Tool<br><span style="font-size:0.5rem;color:var(--muted)">Ejecuta</span></div>
+    </div>
+    <div class="loop-arr"></div>
+    <div class="loop-step">
+      <div class="loop-icon"><BarChart2 size={24} /></div>
+      <div class="loop-lbl">Resultado<br><span style="font-size:0.5rem;color:var(--muted)">Evalúa</span></div>
+    </div>
+  </div>
+
+  <div class="body" style="margin-top:28px;max-width:660px;">El Gateway corre en tu máquina como un daemon. Un solo proceso que maneja <strong>sesiones, herramientas, memoria y canales.</strong> No es una API call. Es un <em>proceso autónomo persistente.</em></div>
+
+  <div class="two-col" style="margin-top:20px;max-width:760px;">
+    <div class="card">
+      <h3>SOUL.md</h3>
+      <p>Se carga <strong>antes de cada razonamiento.</strong> Define quién es el agente.</p>
+    </div>
+    <div class="card" style="border-color:rgba(0,232,122,0.2)">
+      <h3>SKILL.md</h3>
+      <p>Se activa <strong>cuando la tarea lo requiere.</strong> Define cómo usar las herramientas.</p>
+    </div>
+  </div>
+</div>

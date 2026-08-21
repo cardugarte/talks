@@ -1,0 +1,20 @@
+---
+interface Props {
+  number: string;
+  total?: string;
+  label?: string;
+  class?: string;
+}
+const { number, total = '12', label, class: className = '' } = Astro.props;
+---
+<Fragment>
+  <div class="absolute top-7 right-10 font-mono text-[0.65rem] text-muted tracking-widest">
+    {number} / {total}
+  </div>
+  {label && (
+    <div class="font-mono text-[0.65rem] text-green tracking-[0.2em] uppercase mb-4 opacity-85">
+      {label}
+    </div>
+  )}
+  <slot />
+</Fragment>
