@@ -1,0 +1,120 @@
+---
+import Quote from '@talks/shared/components/Quote.astro';
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+---
+<div class="slide">
+  <SlideShell number="11" total="19" label="Capa 3" />
+  <h2 class="title">MCP — <em>Model Context Protocol</em></h2>
+
+  <p class="body" style="text-align:center;margin-bottom:16px;">
+    El estándar abierto que conecta al agente con el mundo. <strong>El USB del agente.</strong>
+  </p>
+
+  <div class="mcp-diagram">
+    <div class="mcp-center">
+      <div style="font-size:1.8rem;">🤖</div>
+      <div class="mcp-label">Agente</div>
+    </div>
+    <div class="mcp-connector">
+      <div class="mcp-badge">MCP</div>
+    </div>
+    <div class="mcp-tools">
+      <div class="mcp-tool">
+        <span>📁</span><span>GitHub</span>
+      </div>
+      <div class="mcp-tool">
+        <span>💬</span><span>Slack</span>
+      </div>
+      <div class="mcp-tool">
+        <span>📋</span><span>Notion</span>
+      </div>
+      <div class="mcp-tool">
+        <span>🗄️</span><span>Supabase</span>
+      </div>
+      <div class="mcp-tool">
+        <span>📅</span><span>Google Cal</span>
+      </div>
+      <div class="mcp-tool">
+        <span>🌐</span><span>Web Search</span>
+      </div>
+    </div>
+  </div>
+
+  <Quote author="Anthropic, 2024 — estándar open source adoptado por toda la industria" style="margin-top:16px;">
+    Si existe como herramienta digital, hay un MCP para que tu agente la use.
+  </Quote>
+</div>
+
+<style>
+/* ══ SLIDE 11 — MCP ══ */
+.mcp-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 8px auto 0;
+}
+.mcp-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0,232,122,0.06);
+  border: 2px solid rgba(0,232,122,0.35);
+  border-radius: 12px;
+  padding: 16px 20px;
+  min-width: 90px;
+}
+.mcp-label { font-family: var(--font-m); font-size: 0.76rem; color: var(--green); letter-spacing: 0.12em; text-transform: uppercase; }
+.mcp-connector {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  position: relative;
+}
+.mcp-connector::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(to right, var(--green2), rgba(0,232,122,0.3));
+}
+.mcp-badge {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,232,122,0.15);
+  border: 1px solid rgba(0,232,122,0.4);
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-family: var(--font-m);
+  font-size: 0.74rem;
+  color: var(--green);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+.mcp-tools {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.mcp-tool {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15,35,24,0.7);
+  border: 1px solid rgba(0,232,122,0.1);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-family: var(--font-m);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+@media (max-width: 768px) {
+  .mcp-diagram { flex-direction: column; }
+  .mcp-connector { padding: 10px 0; }
+  .mcp-connector::before { width: 2px; height: 36px; }
+  .mcp-badge { top: 50%; transform: translate(-50%, -50%); }
+}
+</style>

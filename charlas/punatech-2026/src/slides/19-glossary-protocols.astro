@@ -1,0 +1,79 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+---
+<div class="slide">
+  <SlideShell number="19" total="19" label="Glosario · Parte 2" />
+  <h2 class="title">Protocolos, memoria y <em>vocabulario</em></h2>
+
+  <p class="body" style="text-align:center;margin-bottom:14px;font-size:1.2rem;">
+    Lo invisible que hace funcionar todo. Y el vocabulario que vas a escuchar en cualquier conversación de devs.
+  </p>
+
+  <div class="gloss-grid">
+    <div class="gloss-item">
+      <div class="gloss-head">
+        <span class="gloss-icon">🔌</span>
+        <span class="gloss-term">MCP</span>
+        <span class="gloss-aka">Model Context Protocol</span>
+      </div>
+      <p class="gloss-def">
+        El <strong>USB de los agentes</strong>. Un estándar abierto creado por Anthropic para conectar el agente con herramientas: GitHub, Slack, bases de datos, calendarios. Si existe, hay un MCP.
+      </p>
+    </div>
+
+    <div class="gloss-item">
+      <div class="gloss-head">
+        <span class="gloss-icon">📡</span>
+        <span class="gloss-term">ACP</span>
+        <span class="gloss-aka">Agent Communication Protocol</span>
+      </div>
+      <p class="gloss-def">
+        El <strong>idioma común entre agentes</strong>. Permite que un agente de Anthropic le hable a uno de Google sin código intermedio. IBM, Cisco y Salesforce ya lo adoptaron.
+      </p>
+    </div>
+
+    <div class="gloss-item gloss-mem">
+      <div class="gloss-head">
+        <span class="gloss-icon">💾</span>
+        <span class="gloss-term">Engram</span>
+        <span class="gloss-aka">Memoria persistente</span>
+      </div>
+      <p class="gloss-def">
+        La <strong>memoria que sobrevive entre sesiones</strong>. Sin Engram, el agente empieza cada conversación desde cero. Con Engram, recuerda decisiones, bugs resueltos y tus preferencias.
+      </p>
+    </div>
+
+    <div class="gloss-item gloss-mem">
+      <div class="gloss-head">
+        <span class="gloss-icon">🗂️</span>
+        <span class="gloss-term">Vault</span>
+        <span class="gloss-aka">Grafo de conocimiento</span>
+      </div>
+      <p class="gloss-def">
+        Una <strong>biblioteca de notas enlazadas</strong> (Obsidian). El agente la consulta como segunda mente: documentación, decisiones de arquitectura, runbooks, patrones del equipo.
+      </p>
+    </div>
+
+    <div class="gloss-item">
+      <div class="gloss-head">
+        <span class="gloss-icon">🌐</span>
+        <span class="gloss-term">Open source</span>
+        <span class="gloss-aka">Código abierto</span>
+      </div>
+      <p class="gloss-def">
+        Software cuyo código es <strong>público, modificable y gratuito</strong>. Cualquiera puede leerlo, mejorarlo o adaptarlo. MCP, ACP, Engram y OpenClaw son open source.
+      </p>
+    </div>
+
+    <div class="gloss-item">
+      <div class="gloss-head">
+        <span class="gloss-icon">📁</span>
+        <span class="gloss-term">Repo · PR · Issue</span>
+        <span class="gloss-aka">GitHub básico</span>
+      </div>
+      <p class="gloss-def">
+        <strong>Repo</strong>: carpeta del proyecto con su historial. <strong>Issue</strong>: una tarea o bug reportado. <strong>PR</strong> (pull request): propuesta de cambios para revisar antes de mergear.
+      </p>
+    </div>
+  </div>
+</div>

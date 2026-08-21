@@ -1,0 +1,13 @@
+---
+interface Props {
+  author?: string;
+  class?: string;
+  style?: string;
+}
+
+const { author, class: className = '', style } = Astro.props;
+---
+<blockquote class:list={["quote", className]} style={style}>
+  <p class="quote-t"><slot /></p>
+  {author && <cite class="quote-a">— {author}</cite>}
+</blockquote>

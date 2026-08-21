@@ -1,0 +1,13 @@
+---
+interface Props {
+  number: string;
+  total?: string;
+  label?: string;
+}
+
+const { number, total = '1', label } = Astro.props;
+---
+<Fragment>
+  <div class="slide-num">{number} / {total}</div>
+  {label && <div class="lbl">{label}</div>}
+</Fragment>

@@ -1,7 +1,13 @@
 node_modules/
 dist/
+site/
 .astro/
 .DS_Store
 *.env
 .env.*
-punatech-2026/
+charlas/*/node_modules/
+charlas/*/dist/
+charlas/*/.astro/
+
+# Pendiente de migración al design system compartido
+charlas/agents-at-work/

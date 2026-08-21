@@ -1,0 +1,22 @@
+:root {
+  --bg: #05100c;
+  --bg2: #091a12;
+  --stone: #0f2318;
+  --text: #e0f2e9;
+  --muted: #4a7a5e;
+  --green: #00e87a;
+  --green2: #00b85e;
+  --purple: #c855f5;
+  --purple2: #8b2db3;
+  --cyan: #00d4ff;
+  --red: #ff5577;
+
+  --font-d: 'Orbitron', sans-serif;
+  --font-m: 'JetBrains Mono', monospace;
+  --font-b: 'Exo 2', sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --content-wide: 1180px;
+}

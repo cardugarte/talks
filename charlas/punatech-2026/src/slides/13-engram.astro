@@ -1,0 +1,98 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+---
+<div class="slide">
+  <SlideShell number="13" total="19" label="Capa 5" />
+  <h2 class="title"><em>Engram</em></h2>
+
+  <p class="body" style="text-align:center;margin-bottom:16px;">
+    La memoria persistente del agente. <strong>Sin Engram, cada sesión empieza desde cero.</strong>
+  </p>
+
+  <div class="two-col" style="align-items:start;gap:24px;">
+    <ul class="ilist" style="margin-top:0;">
+      <li><span class="ic">🏛️</span><span><strong>Decisiones de arquitectura</strong> — recuerda por qué eligieron PostgreSQL y no MongoDB</span></li>
+      <li><span class="ic">🐛</span><span><strong>Bugs resueltos</strong> — sabe cómo se solucionó ese race condition del mes pasado</span></li>
+      <li><span class="ic">👤</span><span><strong>Preferencias del equipo</strong> — sabe que Carlos quiere commits en conventional commits y sin emojis</span></li>
+      <li><span class="ic">🗺️</span><span><strong>Contexto del proyecto</strong> — entiende el dominio, el stack y las convenciones</span></li>
+    </ul>
+
+    <div class="engram-visual">
+      <div class="eng-header">
+        <span class="eng-icon">💾</span>
+        <span class="eng-title">Engram Memory</span>
+      </div>
+      <div class="eng-entry">
+        <span class="eng-key">decision/db:</span>
+        <span class="eng-val"> PostgreSQL — escalabilidad y RLS</span>
+      </div>
+      <div class="eng-entry">
+        <span class="eng-key">bugfix/auth:</span>
+        <span class="eng-val"> JWT refresh con sliding window</span>
+      </div>
+      <div class="eng-entry">
+        <span class="eng-key">pref/commits:</span>
+        <span class="eng-val"> conventional, sin emojis</span>
+      </div>
+      <div class="eng-entry">
+        <span class="eng-key">arch/stack:</span>
+        <span class="eng-val"> Next.js + Supabase + Vercel</span>
+      </div>
+      <div class="eng-cursor">█</div>
+    </div>
+  </div>
+
+  <div class="quote" style="margin-top:20px;">
+    <p class="quote-t">Engram es el hipocampo del agente: convierte experiencias en memoria de largo plazo.</p>
+    <span class="quote-a">— Analogía con neurociencia</span>
+  </div>
+</div>
+
+<style>
+/* ══ SLIDE 13 — ENGRAM ══ */
+.engram-visual {
+  background: rgba(5,16,12,0.95);
+  border: 1px solid rgba(0,232,122,0.2);
+  border-radius: 10px;
+  padding: 18px 20px;
+  font-family: var(--font-m);
+  font-size: 1rem;
+  text-align: left;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 0 30px rgba(0,232,122,0.05);
+}
+.eng-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,232,122,0.1);
+  color: var(--green);
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.eng-icon { font-size: 1rem; }
+.eng-entry {
+  display: block;
+  line-height: 2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.eng-key { color: var(--cyan); }
+.eng-val { color: var(--muted); }
+.eng-cursor {
+  color: var(--green);
+  animation: blink 1s step-end infinite;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .engram-visual { max-width: 100%; margin: 0 auto; }
+  /* mostrar la entrada completa en vez de cortar con ellipsis */
+  .eng-entry { white-space: normal; line-height: 1.6; }
+}
+</style>

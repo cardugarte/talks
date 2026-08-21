@@ -1,0 +1,74 @@
+---
+interface Output {
+  text: string;
+  highlight?: boolean;
+}
+
+interface Props {
+  command: string;
+  outputs?: Output[];
+  id?: string;
+  class?: string;
+  style?: string;
+}
+
+const { command, outputs = [], id = 'terminal', class: className = '', style } = Astro.props;
+---
+<div class:list={["terminal", className]} style={style}>
+  <div class="term-bar" aria-hidden="true">
+    <div class="term-dot term-dot-r"></div>
+    <div class="term-dot term-dot-y"></div>
+    <div class="term-dot term-dot-g"></div>
+  </div>
+  <div class="term-line">
+    <span class="t-prompt">➜ </span>
+    <span class="t-cmd" id={`${id}-cmd`}></span>
+    <span class="cursor" id={`${id}-cursor`}></span>
+  </div>
+  {outputs.map((output, index) => (
+    <div class:list={["t-out", output.highlight && "hi"]} id={`${id}-out-${index}`} style="opacity:0">
+      {output.text}
+    </div>
+  ))}
+</div>
+
+<script define:vars={{ command, id, outputCount: outputs.length }}>
+  let index = 0;
+  const commandElement = document.getElementById(`${id}-cmd`);
+  const cursorElement = document.getElementById(`${id}-cursor`);
+
+  function typeCommand() {
+    if (!commandElement || !cursorElement) return;
+    if (index < command.length) {
+      commandElement.textContent += command[index++];
+      setTimeout(typeCommand, 32 + Math.random() * 28);
+      return;
+    }
+
+    cursorElement.style.display = 'none';
+    let delay = 400;
+    for (let outputIndex = 0; outputIndex < outputCount; outputIndex++) {
+      setTimeout(() => {
+        const outputElement = document.getElementById(`${id}-out-${outputIndex}`);
+        if (outputElement) {
+          outputElement.style.opacity = '1';
+          outputElement.style.transition = 'opacity 0.5s';
+        }
+      }, delay);
+      delay += 800;
+    }
+  }
+
+  const slide = commandElement?.closest('.slide');
+  if (slide?.classList.contains('active')) {
+    setTimeout(typeCommand, 800);
+  } else {
+    const observer = new MutationObserver(() => {
+      if (slide?.classList.contains('active')) {
+        observer.disconnect();
+        setTimeout(typeCommand, 800);
+      }
+    });
+    if (slide) observer.observe(slide, { attributes: true, attributeFilter: ['class'] });
+  }
+</script>

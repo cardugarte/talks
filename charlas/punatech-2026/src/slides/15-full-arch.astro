@@ -1,0 +1,164 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+---
+<div class="slide">
+  <SlideShell number="15" total="19" label="El cuadro completo" />
+  <h2 class="title">El agente <em>completo</em></h2>
+
+  <div class="full-arch">
+    <!-- Usuario -->
+    <div class="fa-user">
+      <span style="font-size:1.4rem;">👤</span>
+      <span class="fa-label">Vos</span>
+    </div>
+
+    <div class="fa-arrow">→</div>
+
+    <!-- Orquestador -->
+    <div class="fa-orchestrator">
+      <div class="fa-title">🎯 Orquestador</div>
+      <div class="fa-subtitle">(OpenClaw / Claude)</div>
+
+      <div class="fa-inner">
+        <div class="fa-component fa-skills">🛠️ Skills</div>
+        <div class="fa-component fa-sub">🤝 Sub-agentes</div>
+        <div class="fa-component fa-mcp">🔌 MCP</div>
+        <div class="fa-component fa-acp">📡 ACP</div>
+      </div>
+
+      <div class="fa-memory-row">
+        <div class="fa-component fa-engram">💾 Engram</div>
+        <div class="fa-component fa-obsidian">🗂️ Obsidian</div>
+      </div>
+    </div>
+
+    <div class="fa-arrow">→</div>
+
+    <!-- Mundo -->
+    <div class="fa-world">
+      <div class="fa-world-item">📁 GitHub</div>
+      <div class="fa-world-item">💬 Slack</div>
+      <div class="fa-world-item">🌐 Web</div>
+      <div class="fa-world-item">🗄️ DB</div>
+    </div>
+  </div>
+
+  <p class="body" style="font-size:1.18rem;text-align:center;margin-top:16px;">
+    El LLM <em>razona</em>. Las skills <em>actúan</em>. Los sub-agentes <em>delegan</em>. MCP/ACP <em>conectan</em>. Engram/Obsidian <em>recuerdan</em>.
+  </p>
+</div>
+
+<style>
+/* ══ SLIDE 15 — FULL ARCH ══ */
+.full-arch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+  width: 100%;
+}
+
+.fa-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 60px;
+}
+.fa-label {
+  font-family: var(--font-m);
+  font-size: 0.76rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.fa-arrow {
+  font-family: var(--font-m);
+  font-size: 1.3rem;
+  color: var(--green);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.fa-orchestrator {
+  background: rgba(0,232,122,0.04);
+  border: 2px solid rgba(0,232,122,0.3);
+  border-radius: 14px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 0 30px rgba(0,232,122,0.06);
+  max-width: 440px;
+}
+
+.fa-title {
+  font-family: var(--font-m);
+  font-size: 0.84rem;
+  color: var(--green);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+}
+.fa-subtitle {
+  font-family: var(--font-m);
+  font-size: 0.7rem;
+  color: var(--muted);
+  text-align: center;
+  margin-top: -6px;
+}
+
+.fa-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.fa-memory-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.fa-component {
+  background: rgba(15,35,24,0.8);
+  border: 1px solid rgba(0,232,122,0.15);
+  border-radius: 6px;
+  padding: 7px 10px;
+  font-family: var(--font-m);
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: center;
+  white-space: nowrap;
+}
+.fa-engram, .fa-obsidian {
+  border-color: rgba(200,85,245,0.2);
+  background: rgba(200,85,245,0.04);
+}
+
+.fa-world {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 110px;
+}
+.fa-world-item {
+  background: rgba(15,35,24,0.6);
+  border: 1px solid rgba(0,212,255,0.15);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-family: var(--font-m);
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .full-arch { flex-direction: column; gap: 10px; }
+  .fa-arrow { transform: rotate(90deg); }
+  .fa-orchestrator { max-width: 100%; width: 100%; }
+  .fa-world { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+}
+</style>

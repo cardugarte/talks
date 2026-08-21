@@ -1,0 +1,96 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+const base = import.meta.env.BASE_URL;
+---
+<div class="slide s-final">
+  <SlideShell number="17" total="19" />
+
+  <span class="big">¿Preguntas?</span>
+  <span class="wow"><em>Fuego.</em></span>
+
+  <div class="qa-bottom">
+    <div class="qa-info">
+      <div class="qa-item">
+        <span class="qa-key">speaker</span>
+        <span class="qa-val">La Zuricata</span>
+      </div>
+      <div class="qa-item">
+        <span class="qa-key">web</span>
+        <span class="qa-val">zuricata.dev</span>
+      </div>
+      <div class="qa-item">
+        <span class="qa-key">slides</span>
+        <span class="qa-val">cardugarte.github.io/punatech-2026</span>
+      </div>
+    </div>
+
+    <div class="qa-qr" aria-label="Escaneá para conectar en redes">
+      <img src={`${base}/lazuricata.svg`.replace(/\/+/g, '/')} alt="QR de redes sociales de La Zuricata" />
+      <span class="qa-qr-lbl">conectá conmigo</span>
+    </div>
+  </div>
+</div>
+
+<style>
+/* ══ SLIDE 17 — QA ══ */
+.qa-bottom {
+  margin-top: 36px;
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+}
+.qa-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(5,16,12,0.9);
+  border: 1px solid rgba(0,232,122,0.15);
+  border-radius: 10px;
+  padding: 16px 24px;
+}
+.qa-item {
+  display: flex;
+  gap: 14px;
+  font-family: var(--font-m);
+  font-size: 0.95rem;
+  align-items: center;
+}
+.qa-key {
+  color: var(--muted);
+  min-width: 60px;
+  text-align: right;
+  letter-spacing: 0.06em;
+}
+.qa-key::after { content: ' →'; }
+.qa-val {
+  color: var(--green);
+}
+.qa-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.qa-qr img {
+  width: 200px;
+  height: 200px;
+  padding: 12px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 28px rgba(0, 232, 122, 0.18);
+}
+.qa-qr-lbl {
+  font-family: var(--font-m);
+  font-size: 0.8rem;
+  color: var(--muted);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .qa-bottom { flex-direction: column; align-items: center; gap: 16px; }
+  .qa-info { width: 100%; max-width: 360px; }
+  .qa-val { word-break: break-all; }
+}
+</style>

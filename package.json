@@ -1,0 +1,17 @@
+{
+  "name": "@talks/monorepo",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.3.14",
+  "workspaces": [
+    "shared",
+    "charlas/punatech-2026"
+  ],
+  "scripts": {
+    "build:all": "bash scripts/build-all.sh",
+    "build:punatech": "bun run --cwd charlas/punatech-2026 build",
+    "dev:punatech": "bun run --cwd charlas/punatech-2026 dev",
+    "preview:punatech": "bun run --cwd charlas/punatech-2026 preview",
+    "new:talk": "bash scripts/nueva-charla.sh"
+  }
+}

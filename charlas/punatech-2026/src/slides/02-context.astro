@@ -1,0 +1,17 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+const base = import.meta.env.BASE_URL;
+---
+<div class="slide slide-context">
+  <SlideShell number="02" total="19" label="El momento que estamos viviendo" />
+  <h2 class="title">¿Cuánta gente <em>usa AI</em> hoy?</h2>
+
+  <figure class="usage-figure">
+    <img src={`${base}/usage.jpeg`.replace(/\/+/g, '/')} alt="Mapa de puntos: cada punto representa 3.2 millones de personas. 84% nunca usó AI, 16% usa chatbot gratis, 0.3% paga $20/mes, 0.04% usa coding scaffold." />
+  </figure>
+
+  <div class="quote">
+    <p class="quote-t">"No es una herramienta más. Es un cambio de paradigma en cómo trabajamos con software."</p>
+    <span class="quote-a">— La conversación que está teniendo toda la industria</span>
+  </div>
+</div>

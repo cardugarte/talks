@@ -1,0 +1,79 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+---
+<div class="slide">
+  <SlideShell number="18" total="19" label="Glosario · Parte 1" />
+  <h2 class="title">Las <em>piezas</em> que vimos</h2>
+
+  <p class="body" style="text-align:center;margin-bottom:14px;font-size:1.2rem;">
+    Para que te lleves los conceptos claros cuando te vayas.
+  </p>
+
+  <div class="gloss-grid">
+    <div class="gloss-item">
+      <div class="gloss-head">
+        <span class="gloss-icon">🧠</span>
+        <span class="gloss-term">LLM</span>
+        <span class="gloss-aka">Large Language Model</span>
+      </div>
+      <p class="gloss-def">
+        Un modelo entrenado con billones de textos que aprende a <strong>predecir qué palabra viene después</strong>. No piensa: completa. ChatGPT, Claude y Gemini son LLMs.
+      </p>
+    </div>
+
+    <div class="gloss-item">
+      <div class="gloss-head">
+        <span class="gloss-icon">🤖</span>
+        <span class="gloss-term">Agente</span>
+        <span class="gloss-aka">AI Agent</span>
+      </div>
+      <p class="gloss-def">
+        Un LLM con <strong>autonomía y herramientas</strong>. Recibe un objetivo, planifica los pasos, ejecuta acciones en el mundo real y reporta. Trabaja sin que lo guíes paso a paso.
+      </p>
+    </div>
+
+    <div class="gloss-item">
+      <div class="gloss-head">
+        <span class="gloss-icon">🎯</span>
+        <span class="gloss-term">Orquestador</span>
+        <span class="gloss-aka">Agent Runtime</span>
+      </div>
+      <p class="gloss-def">
+        La plataforma donde corre el agente. Le da contexto, ejecuta sus skills, coordina sub-agentes y conecta con el mundo. <strong>Claude Code y OpenClaw</strong> son orquestadores.
+      </p>
+    </div>
+
+    <div class="gloss-item">
+      <div class="gloss-head">
+        <span class="gloss-icon">🛠️</span>
+        <span class="gloss-term">Skill</span>
+        <span class="gloss-aka">Capacidad</span>
+      </div>
+      <p class="gloss-def">
+        Una habilidad específica que le enseñás al agente. Es un <strong>archivo Markdown</strong> con instrucciones: "cuándo activarte y qué hacer". Cualquiera puede escribir una.
+      </p>
+    </div>
+
+    <div class="gloss-item">
+      <div class="gloss-head">
+        <span class="gloss-icon">🤝</span>
+        <span class="gloss-term">Sub-agente</span>
+        <span class="gloss-aka">Subagent</span>
+      </div>
+      <p class="gloss-def">
+        Un agente especializado al que el agente principal <strong>delega tareas en paralelo</strong>. Frontend, backend, security: cada uno con su contexto propio. Acelera el trabajo.
+      </p>
+    </div>
+
+    <div class="gloss-item">
+      <div class="gloss-head">
+        <span class="gloss-icon">⌨️</span>
+        <span class="gloss-term">CLI</span>
+        <span class="gloss-aka">Command Line Interface</span>
+      </div>
+      <p class="gloss-def">
+        La terminal. La <strong>ventana negra con texto</strong> donde los developers escriben comandos en vez de hacer click. Claude Code es una CLI.
+      </p>
+    </div>
+  </div>
+</div>

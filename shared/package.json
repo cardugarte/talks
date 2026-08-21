@@ -1,0 +1,11 @@
+{
+  "name": "@talks/shared",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./components/*": "./components/*",
+    "./styles/tokens.css": "./styles/tokens.css",
+    "./styles/patterns.css": "./styles/patterns.css"
+  }
+}

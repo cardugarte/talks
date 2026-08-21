@@ -1,0 +1,184 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+import Terminal from '@talks/shared/components/Terminal.astro';
+const base = import.meta.env.BASE_URL;
+---
+<div class="slide slide-cover">
+  <SlideShell number="01" total="19" />
+  <div class="cover-qr-corner" aria-label="Escaneá para conectar con La Zuricata en redes">
+    <img src={`${base}/lazuricata.svg`.replace(/\/+/g, '/')} alt="QR de redes sociales de La Zuricata" />
+    <span class="cover-qr-corner-lbl">conectá</span>
+  </div>
+
+  <div class="cover-main">
+    <div class="cover-badge">PunaTech · Salta · Mayo 2026</div>
+    <h1 class="cover-title">
+      <span class="g">De chatbot</span> a colega
+    </h1>
+    <p class="cover-tagline">Agentes de IA que trabajan con vos</p>
+  </div>
+
+  <div class="cover-speaker">
+    <div class="cover-avatar">
+      <img src={`${base}/avatar.png`.replace(/\/+/g, '/')} alt="La Zuricata — avatar cyber" />
+    </div>
+    <div class="speaker-line">
+      <span class="speaker-prompt">$ whoami</span>
+      <span class="speaker-arrow"> → </span>
+      <span class="speaker-name">La Zuricata</span>
+    </div>
+    <div class="speaker-meta">Cibersecurity &amp; Artificial Intelligence · Bitcoin · Nostr <span style="color:var(--green)">zuricata.dev</span></div>
+  </div>
+
+  <Terminal
+    command={'ai-agent run --objetivo "ser tu colega digital"'}
+    outputs={[{ text: '→ Inicializando agente...' }, { text: '✓ Listo para trabajar con vos', highlight: true }]}
+    id="cover-terminal"
+    class="cover-cursor-block"
+  />
+</div>
+
+<style>
+.cover-badge {
+  align-self: center;
+  font-family: var(--font-m);
+  font-size: 0.92rem;
+  color: #8ab89e;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: 1px solid rgba(0,232,122,0.25);
+  background: rgba(0,232,122,0.04);
+  padding: 9px 20px;
+  border-radius: 999px;
+  margin-bottom: 26px;
+}
+.cover-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: -18px;
+}
+.cover-title {
+  font-family: var(--font-d);
+  font-size: clamp(1.8rem, 4.4vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  margin-bottom: 10px;
+  white-space: nowrap;
+}
+.cover-title .g { color: var(--green); }
+.cover-tagline {
+  font-family: var(--font-b);
+  font-size: clamp(1rem, 1.8vw, 1.4rem);
+  color: #8ab89e;
+  line-height: 1.25;
+  max-width: 480px;
+}
+.cover-speaker {
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.cover-avatar {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  max-width: min(350px, 42vmin);
+  max-height: min(350px, 42vmin);
+  margin-bottom: 6px;
+}
+.cover-avatar::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: conic-gradient(var(--green), var(--purple), var(--green));
+  animation: spin 5s linear infinite;
+  z-index: 0;
+}
+.cover-avatar img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 24px rgba(0, 232, 122, 0.18);
+}
+.speaker-line {
+  font-family: var(--font-m);
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+}
+.speaker-prompt { color: var(--green); }
+.speaker-arrow  { color: var(--muted); }
+.speaker-name   { color: var(--text); font-weight: 700; }
+.speaker-meta {
+  font-family: var(--font-m);
+  font-size: 1.05rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+.cover-cursor-block {
+  font-family: var(--font-m);
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-top: -10px;
+  text-align: center;
+}
+.cover-qr-corner {
+  position: absolute;
+  bottom: 28px;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.cover-qr-corner img {
+  width: 200px;
+  height: 200px;
+  padding: 12px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 28px rgba(0, 232, 122, 0.18);
+}
+.cover-qr-corner-lbl {
+  font-family: var(--font-m);
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .cover-badge { font-size: 0.7rem; padding: 6px 14px; letter-spacing: 0.16em; margin-bottom: 16px; }
+  .cover-title { white-space: normal; }
+  .cover-tagline { font-size: clamp(0.95rem, 4vw, 1.2rem); }
+  .cover-cursor-block { font-size: 0.72rem; padding: 0 8px; }
+  /* QR al flujo normal, debajo del bloque del speaker (no superpuesto) */
+  .cover-qr-corner {
+    position: static;
+    transform: none;
+    margin: 14px auto 0;
+    gap: 5px;
+    order: 1;          /* después de cover-main y cover-speaker */
+  }
+  .cover-cursor-block { order: 2; }   /* y antes del cursor-block */
+  .cover-qr-corner img { width: 90px; height: 90px; padding: 6px; }
+  .cover-qr-corner-lbl { font-size: 0.5rem; }
+
+  /* compactar el eje Y en mobile */
+  .cover-main { margin-bottom: 0; }
+  .lbl { margin-bottom: 8px !important; }
+  .cover-title { margin-bottom: 6px; }
+  .cover-speaker { margin-bottom: 0; gap: 6px; }
+  .cover-avatar { margin-bottom: 2px; }
+}
+</style>
