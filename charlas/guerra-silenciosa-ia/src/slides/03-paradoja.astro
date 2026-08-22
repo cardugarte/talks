@@ -1,0 +1,20 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+
+const asset = (f) => `${import.meta.env.BASE_URL}estudio-01/${f}`.replace(/\/+/g, '/');
+---
+
+<div class="slide content-slide slide-paradoja">
+  <SlideShell number="03" total="11" label="" />
+        <strong>La ventaja está en la infraestructura.</strong><br />
+  <h2 class="title">La ventaja inicial de <span class="g">Estados Unidos</span></h2>
+  <figure class="hero-figure">
+    <img
+      src={asset('paradoja-eeuu-china-2026.svg')}
+      alt="Tres paneles comparan Estados Unidos y China: 59 versus 35 modelos notables en 2025, inversión privada de 285,9 mil millones de dólares versus 12,4 mil millones, y Elo 1503 versus 1464 con una brecha del 2,7 por ciento."
+    />
+    <figcaption class="hero-caption">
+      <span class="src">Stanford HAI, AI Index 2026. Indicadores con metodologías y límites distintos.</span>
+    </figcaption>
+  </figure>
+</div>

@@ -1,0 +1,234 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+---
+
+<div class="slide content-slide slide-cuellos military-slide">
+  <SlideShell number="07" total="11" label="Autonomía militar" />
+  <h2 class="title military-title">LA GUERRA SE VUELVE <span class="g">ALGORÍTMICA</span></h2>
+  <p class="military-thesis">La ventaja ya no es solo detectar primero: es decidir y actuar antes.</p>
+
+  <div class="military-grid" aria-label="Aplicaciones militares y riesgos de autonomía">
+    <section class="military-panel military-us">
+      <div class="military-panel-head"><span class="military-kicker">Estados Unidos</span><span class="military-index"></span></div>
+      <h3>La inteligencia entra en la cadena de mando.</h3>
+      <ul>
+        <li><strong>Pentágono, CIA y NSA:</strong> análisis de inteligencia, vulnerabilidades de red y decisiones en tiempo real.</li>
+        <li><strong>Infraestructura:</strong> datos unificados + liderazgo de empresas privadas.</li>
+        <li><strong>Fricción:</strong> límites ofensivos y éticos frente a Anthropic y OpenAI.</li>
+      </ul>
+    </section>
+
+    <section class="military-panel military-china">
+      <div class="military-panel-head"><span class="military-kicker">China</span><span class="military-index"></span></div>
+      <h3>La capacidad se compacta y se integra.</h3>
+      <ul>
+        <li><strong>Modelos externos:</strong> investigadores militares usaron GPT‑3.5 para resumir código y entrenar modelos domésticos dentro de redes seguras.</li>
+        <li><strong>Multidominio:</strong> IA junto a espacio, ciberdefensa y guerra electrónica.</li>
+        <li><strong>Límite declarado:</strong> advertencias públicas sobre escalada autónoma sin control humano.</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <p class="military-bottom"><span>AUTONOMÍA</span> decisiones más rápidas · ventana de revisión humana más estrecha · responsabilidad más difícil de rastrear</p>
+</div>
+
+<style>
+  .military-slide {
+    align-items: stretch;
+    padding: 38px 4.5vw 42px;
+    text-align: left;
+  }
+
+  .military-title {
+    margin: 0;
+    font-size: clamp(2.3rem, 4.4vw, 4.15rem);
+    line-height: 0.98;
+    letter-spacing: 0.025em;
+  }
+
+  .military-thesis {
+    margin: 10px 0 20px;
+    color: #a8c8b8;
+    font-size: clamp(1rem, 1.45vw, 1.28rem);
+    line-height: 1.25;
+  }
+
+  .military-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 28.5%));
+    justify-content: center;
+    gap: 14px;
+    column-gap: clamp(28px, 4vw, 56px);
+    min-height: 0;
+    flex: 1;
+  }
+
+  .military-panel {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 18px;
+    padding: 22px 22px 20px;
+    overflow: hidden;
+    background: linear-gradient(145deg, rgba(15, 35, 24, 0.94), rgba(7, 19, 13, 0.78));
+    border: 1px solid rgba(0, 232, 122, 0.14);
+    border-top: 3px solid var(--green);
+    border-radius: var(--radius-md);
+    box-shadow: inset 0 0 26px rgba(0, 0, 0, 0.16);
+  }
+
+  .military-china { border-top-color: var(--purple); }
+  .military-ukraine {
+    border-color: rgba(0, 212, 255, 0.22);
+    border-top-color: var(--cyan);
+    background: linear-gradient(145deg, rgba(9, 35, 40, 0.9), rgba(7, 19, 20, 0.82));
+  }
+
+  .military-panel-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .military-kicker,
+  .military-index,
+  .military-panel li strong,
+  .ukraine-facts span,
+  .military-bottom span,
+  .us-placeholder span {
+    font-family: var(--font-m);
+  }
+
+  .military-kicker {
+    color: var(--green);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .military-china .military-kicker { color: var(--purple); }
+  .military-ukraine .military-kicker { color: var(--cyan); }
+  .military-index { color: var(--muted); font-size: 0.68rem; }
+
+  .military-panel h3 {
+    max-width: 23ch;
+    margin: 0;
+    color: var(--text);
+    font-family: var(--font-d);
+    font-size: clamp(1.05rem, 1.45vw, 1.34rem);
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+
+  .military-panel ul {
+    display: grid;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .military-panel li {
+    padding-top: 12px;
+    border-top: 1px solid rgba(138, 184, 158, 0.14);
+    color: #a8c8b8;
+    font-size: clamp(0.82rem, 1.05vw, 0.98rem);
+    line-height: 1.42;
+  }
+
+  .military-panel li strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--text);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+  }
+
+  .us-placeholder {
+    display: grid;
+    gap: 6px;
+    margin-top: auto;
+    padding: 12px 10px;
+    border: 1px dashed rgba(0, 232, 122, 0.35);
+    background: rgba(0, 232, 122, 0.035);
+  }
+
+  .us-placeholder span { color: var(--muted); font-size: 0.6rem; letter-spacing: 0.14em; }
+  .us-placeholder strong { color: #8ab89e; font-size: 0.68rem; line-height: 1.2; letter-spacing: 0.08em; }
+
+  .military-lead {
+    max-width: 43ch;
+    margin: 0 0 12px;
+    color: #b9e0d5;
+    font-size: clamp(0.88rem, 1.1vw, 1.03rem);
+    line-height: 1.32;
+  }
+
+  .ukraine-facts {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .ukraine-facts div { padding: 8px 9px; background: rgba(0, 212, 255, 0.055); border-left: 2px solid rgba(0, 212, 255, 0.55); }
+  .ukraine-facts span { display: block; margin-bottom: 4px; color: var(--cyan); font-size: 0.6rem; letter-spacing: 0.12em; }
+  .ukraine-facts strong { display: block; color: var(--text); font-size: 0.78rem; line-height: 1.2; }
+
+  .ukraine-visual {
+    display: grid;
+    grid-template-columns: minmax(112px, 0.7fr) 1fr;
+    align-items: end;
+    gap: 12px;
+    margin-top: auto;
+  }
+
+  .ukraine-visual figure { margin: 0; }
+  .ukraine-visual img {
+    display: block;
+    width: 100%;
+    height: 106px;
+    object-fit: cover;
+    object-position: center 24%;
+    border: 1px solid rgba(0, 212, 255, 0.22);
+    filter: saturate(0.75) contrast(1.05);
+  }
+
+  .ukraine-visual figcaption {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 0.62rem;
+    line-height: 1.2;
+  }
+
+  .ukraine-caveat {
+    margin: 0 0 2px;
+    padding: 10px;
+    color: #a8c8b8;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    border-left: 2px solid var(--cyan);
+    background: rgba(0, 0, 0, 0.16);
+  }
+
+  .ukraine-caveat strong { color: var(--cyan); font-family: var(--font-m); font-size: 0.68rem; letter-spacing: 0.05em; }
+
+  .military-bottom {
+    margin: 17px 0 0;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 85, 119, 0.3);
+    color: #b9cfc4;
+    font-size: clamp(0.78rem, 1.05vw, 0.94rem);
+    line-height: 1.25;
+  }
+
+  .military-bottom span { margin-right: 10px; color: var(--red); font-size: 0.68rem; letter-spacing: 0.14em; }
+
+  @media (max-width: 900px) {
+    .military-slide { padding: 52px 5vw 58px; overflow-y: auto; }
+    .military-grid { grid-template-columns: 1fr; flex: none; }
+    .military-panel { min-height: 220px; }
+  }
+</style>

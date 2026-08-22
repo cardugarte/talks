@@ -1,0 +1,169 @@
+{
+  "version": 2,
+  "claims": [
+    {
+      "id": "notable-models-2025",
+      "text": "United States produced 59 notable AI models in 2025 versus 35 from China",
+      "source_ids": [20],
+      "on_slide": "03-paradoja"
+    },
+    {
+      "id": "private-ai-investment-2025",
+      "text": "US private AI investment US$285.9B versus US$12.4B in China",
+      "source_ids": [22],
+      "on_slide": "03-paradoja"
+    },
+    {
+      "id": "arena-elo-2026-03",
+      "text": "Arena Elo 1503 versus 1464; 2.7% gap as of March 2026",
+      "source_ids": [21],
+      "on_slide": "03-paradoja"
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://luma.com/797bes66?locale=es",
+      "title": "Aleph Hackathon Mendoza Hub · Luma",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 2,
+      "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report",
+      "title": "Stanford HAI — 2026 AI Index Report",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 3,
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/07/promoting-the-export-of-the-american-ai-technology-stack",
+      "title": "White House — Promoting the Export of the American AI Technology Stack",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 4,
+      "url": "https://www.bis.gov/press-release/commerce-implements-new-export-controls-advanced-computing-semiconductor-manufacturing-items-peoples",
+      "title": "BIS — 2022 advanced computing and semiconductor export controls",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 5,
+      "url": "https://english.www.gov.cn/policies/latestreleases/202508/27/content_WS68ae7976c6d0868f4e8f51a0.html",
+      "title": "State Council — AI Plus guideline",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 6,
+      "url": "https://english.www.gov.cn/news/202507/26/content_WS6884bea8c6d0868f4e8f4732.html",
+      "title": "Chinese premier on global AI governance",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 7,
+      "url": "https://opensource.org/ai/open-source-ai-definition",
+      "title": "OSI — Open Source AI Definition 1.0",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 8,
+      "url": "https://opensource.org/blog/metas-llama-license-is-still-not-open-source",
+      "title": "OSI — Meta Llama license is not Open Source",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 9,
+      "url": "https://openai.com/index/introducing-gpt-oss",
+      "title": "OpenAI — Introducing gpt-oss",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 10,
+      "url": "https://api-docs.deepseek.com/news/news250120",
+      "title": "DeepSeek — R1 release",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 11,
+      "url": "https://qwen.ai/blog?id=qwen3",
+      "title": "Qwen — Qwen3 release",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 12,
+      "url": "https://www.nist.gov/news-events/news/2025/09/caisi-evaluation-deepseek-ai-models-finds-shortcomings-and-risks",
+      "title": "NIST CAISI — DeepSeek evaluation",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 13,
+      "url": "https://hai.stanford.edu/policy/beyond-deepseek-chinas-diverse-open-weight-ai-ecosystem-and-its-policy-implications",
+      "title": "Stanford HAI — Beyond DeepSeek",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 14,
+      "url": "https://www.uscc.gov/research/two-loops-how-chinas-open-ai-strategy-reinforces-its-industrial-dominance",
+      "title": "USCC — Two Loops: China open AI strategy",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 15,
+      "url": "https://www.anthropic.com/news/position-open-weights-models",
+      "title": "Anthropic — Position on open-weights models",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 16,
+      "url": "https://www.ai.gov/action-plan",
+      "title": "United States — AI Action Plan",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 17,
+      "url": "https://arxiv.org/html/2505.12625v1",
+      "title": "R1dacted — Investigating Local Censorship in DeepSeek R1",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 18,
+      "url": "https://www.chinalawtranslate.com/en/generative-ai-interim",
+      "title": "China Law Translate — Interim Measures for Generative AI",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 19,
+      "url": "https://github.com/QwenLM/Qwen3",
+      "title": "QwenLM — Qwen3 repository and license",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 20,
+      "url": "https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_1_research_development.pdf",
+      "title": "Stanford HAI — AI Index 2026 Chapter 1: Research and Development",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 21,
+      "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report/technical-performance",
+      "title": "Stanford HAI — AI Index 2026: Technical Performance",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 22,
+      "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report/economy",
+      "title": "Stanford HAI — AI Index 2026: Economy",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 23,
+      "url": "https://www.bis.gov/press-release/department-commerce-announces-rescission-biden-era-artificial-intelligence-diffusion-rule-strengthens",
+      "title": "BIS — Rescission of AI Diffusion Rule and chip guidance",
+      "accessed": "2026-08-13"
+    },
+    {
+      "id": 24,
+      "url": "https://www.bis.gov/press-release/department-commerce-revises-license-review-policy-semiconductors-exported-china",
+      "title": "BIS — 2026 semiconductor license review policy for China",
+      "accessed": "2026-08-13"
+    }
+  ]
+}

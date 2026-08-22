@@ -8,3 +8,5 @@ site/
 charlas/*/node_modules/
 charlas/*/dist/
 charlas/*/.astro/
+# Local AI runtime state
+.atl/

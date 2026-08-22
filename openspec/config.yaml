@@ -1,0 +1,56 @@
+schema: spec-driven
+strict_tdd: false
+artifact_store: hybrid
+
+context: |
+  Tech stack: Bun 1.3.14 workspaces; Astro 6.1.x single-route decks under charlas/<slug>/; shared package @talks/shared.
+  Architecture: explicit root workspaces; GitHub Pages base /talks/<slug>/; scripts/build-all.sh copies each dist/ into site/<slug>/.
+  Testing: no unit, integration, or E2E runner; verify with astro build, preview, and projection-safe layout checks.
+  Style: import shared tokens/patterns first; deck CSS in labeled slide blocks; do not restyle during infrastructure work.
+  Workspaces: shared, charlas/punatech-2026, charlas/agents-at-work, charlas/guerra-silenciosa-ia.
+  guerra-silenciosa-ia: Astro 6 deck, 11 Spanish slides, shared primitives, no Tailwind/tsconfig; research lives in brief/.
+
+testing:
+  runner: none
+  command: ""
+  layers:
+    unit: false
+    integration: false
+    e2e: false
+  coverage:
+    available: false
+    command: ""
+  quality:
+    linter: false
+    type_checker: "astro check only in punatech-2026 and agents-at-work (@astrojs/check + typescript); not wired as a script or CI step"
+    formatter: false
+
+rules:
+  proposal:
+    - Include a rollback plan for risky changes
+    - Do not restyle shared primitives unless the change explicitly requires visual work
+    - Keep deck copy language as authored; SDD artifacts stay in English
+  specs:
+    - Use Given/When/Then for scenarios
+    - Use RFC 2119 keywords (MUST, SHALL, SHOULD, MAY)
+  design:
+    - Preserve the shared-vs-deck-local split: stable primitives in @talks/shared, talk-specific markup in the deck
+    - Document architecture decisions with rationale
+    - Call out projection-safe layout constraints (1280x720, no overflow)
+  tasks:
+    - Group by phase, use hierarchical numbering
+    - Keep tasks completable in one session
+    - Forecast the 400-line review budget before apply
+  apply:
+    guidelines:
+      - Follow existing code patterns in the target deck
+      - Register new decks in root package.json workspaces before expecting build:all to include them
+      - Do not swap shared components when rendered markup would change
+    tdd: false
+    test_command: ""
+  verify:
+    test_command: ""
+    build_command: "bun run build:all"
+    coverage_threshold: 0
+  archive:
+    - Warn before merging destructive deltas

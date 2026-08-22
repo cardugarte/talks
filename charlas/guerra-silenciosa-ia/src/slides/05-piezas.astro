@@ -1,0 +1,97 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+import bench32 from '../img/bench32.jpeg';
+---
+
+<div class="slide content-slide slide-piezas">
+  <SlideShell number="05" total="11" label="Nueva unidad de medida" />
+  <h2 class="title">LA FRONTERA YA NO TIENE <span class="g">PODIO</span></h2>
+
+  <p class="slide-piezas__thesis">
+    En <strong>CursorBench 3.2</strong>, modelos nuevos desafían a los incumbentes de frontera:
+    la calidad en tareas reales de coding agents y el costo promedio por tarea ya no avanzan juntos.
+  </p>
+
+  <div class="slide-piezas__evidence">
+    <figure class="slide-piezas__chart">
+      <img src={bench32.src} alt="CursorBench 3.2: comparación de calidad y costo entre modelos" />
+      <figcaption>CursorBench 3.2 · comparación específica del benchmark</figcaption>
+    </figure>
+
+    <aside class="slide-piezas__note" aria-label="Cómo leer el benchmark">
+      <span class="slide-piezas__eyebrow">CALIDAD ↔ COSTO POR TAREA</span>
+      <p><strong>Grok 4.6</strong> y <strong>Kimi K3</strong> aparecen como ejemplos visibles de esa presión competitiva.</p>
+      <p class="slide-piezas__caveat">Benchmark mide este conjunto de tareas, no una superioridad universal.</p>
+    </aside>
+  </div>
+</div>
+
+<style>
+  .slide-piezas { padding-top: 5.5vw; padding-bottom: 5.5vw; }
+  .slide-piezas .title { margin-bottom: 12px; }
+  .slide-piezas__thesis {
+    max-width: 960px;
+    margin: 0 0 18px;
+    color: #b7d7c4;
+    font-size: clamp(1rem, 1.5vw, 1.28rem);
+    line-height: 1.35;
+  }
+  .slide-piezas__thesis strong { color: var(--text); }
+  .slide-piezas__evidence {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.28fr);
+    align-items: center;
+    gap: 24px;
+    width: min(1160px, 94vw);
+  }
+  .slide-piezas__chart { margin: 0; min-width: 0; }
+  .slide-piezas__chart img {
+    display: block;
+    width: 100%;
+    max-height: 49vh;
+    object-fit: contain;
+    border: 1px solid rgba(0, 232, 122, 0.22);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 0 34px rgba(0, 232, 122, 0.08);
+  }
+  .slide-piezas__chart figcaption {
+    margin-top: 7px;
+    color: var(--muted);
+    font-family: var(--font-m);
+    font-size: 0.72rem;
+    text-align: left;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .slide-piezas__note {
+    border-left: 2px solid var(--green);
+    padding: 14px 0 14px 18px;
+    color: #a8c8b8;
+    font-size: clamp(0.9rem, 1.25vw, 1.08rem);
+    line-height: 1.42;
+    text-align: left;
+  }
+  .slide-piezas__note p { margin: 10px 0 0; }
+  .slide-piezas__note strong { color: var(--text); }
+  .slide-piezas__eyebrow {
+    color: var(--green);
+    font-family: var(--font-m);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+  }
+  .slide-piezas__caveat { color: var(--muted); font-size: 0.85em; }
+
+  @media (max-width: 768px) {
+    .slide-piezas { padding-top: 64px; padding-bottom: 54px; }
+    .slide-piezas__evidence { grid-template-columns: 1fr; gap: 12px; }
+    .slide-piezas__chart img { max-height: 39vh; }
+    .slide-piezas__note { padding: 8px 0 0 12px; }
+  }
+
+  @media (max-height: 760px) {
+    .slide-piezas { padding-top: 3vw; padding-bottom: 3vw; }
+    .slide-piezas__thesis { margin-bottom: 10px; font-size: 1rem; }
+    .slide-piezas__evidence { gap: 16px; }
+    .slide-piezas__chart img { max-height: 43vh; }
+  }
+</style>

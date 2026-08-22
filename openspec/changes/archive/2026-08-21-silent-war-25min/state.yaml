@@ -1,0 +1,36 @@
+change: silent-war-25min
+phase: apply-pr1
+artifact_store: hybrid
+execution_mode: interactive
+delivery_strategy: ask-on-risk
+review_budget_lines: 400
+artifacts:
+  explore: true
+  proposal: true
+  specs: true
+  design: true
+  tasks: true
+  apply-progress: false
+  verify-report: false
+paths:
+  exploration: openspec/changes/silent-war-25min/exploration.md
+  proposal: openspec/changes/silent-war-25min/proposal.md
+  spec: openspec/changes/silent-war-25min/specs/guerra-silenciosa-five-act-deck/spec.md
+  design: openspec/changes/silent-war-25min/design.md
+  tasks: openspec/changes/silent-war-25min/tasks.md
+engram:
+  explore: 1851
+  proposal: 1853
+  spec: 1855
+  design: 1854
+  tasks: 1856
+  sdd_init: 1848
+  testing_capabilities: 1849
+allowed_edit_roots:
+  - charlas/guerra-silenciosa-ia
+  - openspec
+  - index.html
+notes:
+  - Architecture B (five-act, 25 min) is approved.
+  - Explore executor could not write the OpenSpec file; orchestrator materialized exploration.md from Engram 1851.
+last_updated: 2026-08-21T21:30:00-03:00
