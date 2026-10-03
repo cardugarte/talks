@@ -1,0 +1,17 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+const jobs = ['Elegir qué', 'Escribir', 'Diseñar', 'Revisar', 'Programar', 'Medir'];
+---
+<div class="slide slide-problema">
+  <SlideShell number="04" total="15" label="El problema" />
+  <h2 class="hl hl-lg">Un post diario son seis laburos</h2>
+  <ol class="jobs">
+    {jobs.map((job, i) => (
+      <li><span class="idx">0{i + 1}</span><span class="job">{job}</span></li>
+    ))}
+  </ol>
+  <aside class="notes" data-time="1 min">
+    <p>Un post parece una cosa, pero son seis. Elegir de qué hablar. Escribir el copy con la voz de la marca, y la nuestra es en inglés porque el viajero es internacional. Armar la imagen. Revisar que no prometa algo que el producto todavía no hace. Programarlo a la hora correcta en cada red. Y medir al otro día para aprender. Multiplicalo por varios formatos por día y dos redes, X y Nostr. Eso es un trabajo de tiempo completo para alguien. Ninguno de esos seis pasos es difícil por separado. El problema es hacerlos todos, todos los días. Y eso es justo lo que los agentes hacen bien.</p>
+    <p class="notes-time">(1 min)</p>
+  </aside>
+</div>

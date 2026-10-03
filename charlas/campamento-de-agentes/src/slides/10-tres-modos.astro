@@ -1,0 +1,30 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+import { asset } from '../lib/asset';
+---
+<div class="slide slide-modos3">
+  <SlideShell number="10" total="15" label="Tres modos de post" />
+  <h2 class="hl modos3-title">Tres modos</h2>
+  <div class="modos3">
+    <figure class="modo3">
+      <img class="m3-sq placa-img" src={asset('img/matienzo-1x1.jpg')} alt="Placa Travelsats modo Place: Quebrada de Matienzo" />
+      <figcaption><strong>Place:</strong> el lugar manda</figcaption>
+    </figure>
+    <figure class="modo3">
+      <img class="m3-sq placa-img" src={asset('img/garganta-invite-1x1.jpg')} alt="Placa Travelsats modo Invite: Heading to Mendoza?" />
+      <figcaption><strong>Invite:</strong> "¿Venís a Mendoza?"</figcaption>
+    </figure>
+    <figure class="modo3">
+      <div class="fan" aria-label="Carrusel de tres fotos de bodegas del Valle de Uco">
+        <img class="fan-img fan-1" src={asset('img/uco-3-vista-flores.jpg')} alt="Bodega DiamAndes, Clos de los Siete, Vista Flores" />
+        <img class="fan-img fan-2" src={asset('img/uco-1-clos7-zuccardi.jpg')} alt="Bodega en el Valle de Uco, Clos de los 7 y Zuccardi" />
+        <img class="fan-img fan-3" src={asset('img/uco-2-andeluna-salentein.jpg')} alt="Bodega Salentein, Valle de Uco" />
+      </div>
+      <figcaption><strong>Carrusel:</strong> 3 fotos, sin placa</figcaption>
+    </figure>
+  </div>
+  <aside class="notes" data-time="1 min 15 s">
+    <p>Ridgeline publica en tres modos, y las reglas de cada uno viven en un skill, un archivo con instrucciones que cualquier agente del campamento puede seguir. Place: el protagonista es el lugar, como Quebrada de Matienzo en el Parque Aconcagua. Invite: una invitación suave, "Heading to Mendoza?", con el cierre "Next dates in DM". Y el tercero es el carrusel de la tarde: tres fotos reales de una actividad, sin placa, con un caption de lugar. Estas tres son bodegas del Valle de Uco que salen de nuestra galería en Cloudinary. Ridgeline va alternando: nunca el mismo modo dos veces seguidas, y antes de escribir revisa los últimos cinco captions para no repetir cómo arranca ni cómo cierra. Y hay cosas prohibidas en una placa de lugar: nada de sats, Lightning ni Nostr. El viajero mira un lugar, no un protocolo.</p>
+    <p class="notes-time">(1 min 15 s)</p>
+  </aside>
+</div>

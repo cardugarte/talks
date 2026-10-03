@@ -1,0 +1,22 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+import { asset } from '../lib/asset';
+---
+<div class="slide slide-cierre">
+  <SlideShell number="15" total="15" />
+  <img class="bird" src={asset('img/travelsats-bird-white.svg')} alt="Travelsats" />
+  <h2 class="hl hl-xl">Gracias</h2>
+  <p class="handles">@LaZuricata · travelsats.ar · @travelsats</p>
+  <p class="sub ask">¿Preguntas?</p>
+  <img class="qr qr-cierre" src={asset('img/qr-travelsats.svg')} alt="QR: redes de Travelsats" />
+  <aside class="notes" data-time="Q&amp;A">
+    <p>Eso es el campamento. Un founder, un equipo de agentes con nombre y rol, una memoria compartida y reglas claras sobre qué decide cada uno. Si quieren ver cómo sale el contenido, sigan a @travelsats en X. Si quieren charlar de agentes, Bitcoin o turismo, me encuentran como @LaZuricata. Y si viajan, o son guías, anótense en la waitlist de travelsats.ar. ¿Preguntas?</p>
+    <p><strong>Respuestas preparadas para Q&amp;A:</strong></p>
+    <ul>
+      <li>¿Cuánto cuesta? [dato a completar: costo mensual aproximado del campamento]. Lo que sí está medido: Bitcoin trends tiene tope de unos USD 0,20 por corrida y un video de 18 s costó unos USD 4,74.</li>
+      <li>¿Por qué no X Ads? Todavía no lanzamos el beta. Primero orgánico y aprender; la pauta espera.</li>
+      <li>¿Por qué Nostr? Es la red nativa de la comunidad bitcoiner y Travelsats usa identidad Nostr. Publicamos en las dos a la vez.</li>
+      <li>¿No pierde autenticidad? El copy sale de actividades reales y yo apruebo cada post. Lo que delego es el trabajo, no el criterio.</li>
+    </ul>
+  </aside>
+</div>

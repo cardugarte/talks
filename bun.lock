@@ -20,6 +20,14 @@
         "typescript": "^5.9.3",
       },
     },
+    "charlas/campamento-de-agentes": {
+      "name": "@talks/campamento-de-agentes",
+      "version": "0.1.0",
+      "dependencies": {
+        "@talks/shared": "file:../../shared",
+        "astro": "^6.1.2",
+      },
+    },
     "charlas/guerra-silenciosa-ia": {
       "name": "@talks/guerra-silenciosa-ia",
       "version": "0.1.0",
@@ -330,6 +338,8 @@
     "@tailwindcss/vite": ["@tailwindcss/vite@4.3.3", "", { "dependencies": { "@tailwindcss/node": "4.3.3", "@tailwindcss/oxide": "4.3.3", "tailwindcss": "4.3.3" }, "peerDependencies": { "vite": "^5.2.0 || ^6 || ^7 || ^8" } }, "sha512-yYU8cogLeSh/ms2jh8Fj7jaba/EWa7Ja6GoUqYZaraEuCI5YS6ms6ObZgjjedm+jm6XZjdNRWBpPP6Z86oOxcw=="],
 
     "@talks/agents-at-work": ["@talks/agents-at-work@workspace:charlas/agents-at-work"],
+
+    "@talks/campamento-de-agentes": ["@talks/campamento-de-agentes@workspace:charlas/campamento-de-agentes"],
 
     "@talks/guerra-silenciosa-ia": ["@talks/guerra-silenciosa-ia@workspace:charlas/guerra-silenciosa-ia"],
 
@@ -1212,6 +1222,8 @@
     "@tailwindcss/oxide-wasm32-wasi/tslib": ["tslib@2.8.1", "", { "bundled": true }, "sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w=="],
 
     "@talks/agents-at-work/@talks/shared": ["@talks/shared@file:shared", {}],
+
+    "@talks/campamento-de-agentes/@talks/shared": ["@talks/shared@file:shared", {}],
 
     "@talks/guerra-silenciosa-ia/@talks/shared": ["@talks/shared@file:shared", {}],
 

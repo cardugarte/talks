@@ -1,0 +1,33 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+const roster = [
+  ['Zhulong', 'comando'],
+  ['Ridgeline', 'voz, X y Nostr'],
+  ['Refugio', 'hello@ y waitlist'],
+  ['Cartógrafo', 'SEO de contenido'],
+  ['Cumbre', 'SEO técnico'],
+  ['Pionero', 'producto y ventas'],
+  ['Senderista', 'recorridos UX'],
+  ['Mirador', 'QA visual'],
+  ['Cóndor', 'la app (PWA)'],
+  ['Escriba', 'legal'],
+  ['Hornero', 'la computadora del equipo'],
+  ['Bobi', 'mi asistente personal'],
+];
+---
+<div class="slide slide-campamento">
+  <SlideShell number="05" total="15" label="El campamento" />
+  <h2 class="hl hl-lg">El campamento</h2>
+  <ul class="roster">
+    {roster.map(([name, role]) => (
+      <li class={name === 'Ridgeline' ? 'agent agent-focus' : 'agent'}>
+        {name === 'Ridgeline' && <span class="focus-tag">En foco hoy</span>}
+        <strong>{name}</strong><span class="role"><span class="sep">· </span>{role}</span>
+      </li>
+    ))}
+  </ul>
+  <aside class="notes" data-time="1 min 15 s">
+    <p>Este es el campamento. Cada agente es un asistente de Grok Bot con un nombre, un frente y un resultado que le pertenece. Zhulong es el comando: yo hablo con Zhulong y Zhulong despacha. Refugio atiende hello@ y la waitlist, Cartógrafo y Cumbre hacen SEO, Pionero lleva producto y ventas, Cóndor desarrolla la app, Hornero mantiene la computadora del equipo y Bobi es mi asistente personal. Los nombres son de montaña a propósito: es un campamento, no una oficina. Pero miren el recuadro blanco: Ridgeline. Es la voz pública de Travelsats, escribe todo lo que sale en X y en Nostr, y además lidera el frente de SEO. Toda la charla de hoy gira alrededor de Ridgeline: cómo se despierta, qué hace adentro de su flujo, con qué herramientas y cómo aprende de sus propios números. Si entienden a Ridgeline, entienden el campamento. [dato a completar: desde cuándo funciona el campamento]</p>
+    <p class="notes-time">(1 min 15 s)</p>
+  </aside>
+</div>

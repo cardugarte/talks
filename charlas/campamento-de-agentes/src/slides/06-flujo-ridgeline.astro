@@ -1,0 +1,38 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+const steps = [
+  { when: '19:00 a 23:59', what: 'Se despierta', detail: 'en su ventana automática' },
+  { when: 'Supabase', what: 'Elige una actividad', detail: 'que todavía no publicó' },
+  { when: 'Cloudinary', what: 'Trae sus fotos', detail: 'reales, del lugar' },
+  { when: 'Voz Travelsats', what: 'Escribe el post', detail: 'título + descripción, máx. 200 caracteres' },
+  { when: 'Postiz', what: 'Arma X y Nostr', detail: 'placa o carrusel de 3 fotos, en borrador' },
+];
+---
+<div class="slide slide-rl">
+  <SlideShell number="06" total="15" label="El flujo de Ridgeline" />
+  <h2 class="hl rl-title">Un proceso que lidera un agente</h2>
+  <div class="rl-map">
+    <p class="rl-owner"><span class="rl-owner-name">Ridgeline</span><span class="rl-owner-line" aria-hidden="true"></span></p>
+    <ol class="rl-steps">
+      {steps.map((s, i) => (
+        <li class="rl-step">
+          <span class="rl-when">{s.when}</span>
+          <span class="rl-what">{s.what}</span>
+          <span class="rl-detail">{s.detail}</span>
+          <span class="rl-n">{i + 1}</span>
+        </li>
+      ))}
+      <li class="rl-step rl-human">
+        <span class="rl-when">Carlos</span>
+        <span class="rl-what">¿Lo agendo o sale ya?</span>
+        <span class="rl-detail">sí o no, con la hora propuesta</span>
+        <span class="rl-n">6</span>
+      </li>
+    </ol>
+    <p class="rl-out"><span class="rl-out-arrow" aria-hidden="true">↳</span> Sale en X y en Nostr a la hora agendada. Ejemplo: Garganta del Diablo, hoy 10:30.</p>
+  </div>
+  <aside class="notes" data-time="1 min 15 s">
+    <p>Esto es lo que pasa adentro de Ridgeline para que exista un post. Todo lo automático en el campamento corre de 19 a 23:59, así que Ridgeline se despierta a la noche, en su ventana. Uno: va a la base de datos en Supabase y elige una actividad que todavía no publicó; lleva un registro de las que ya usó para no repetir. Dos: trae las fotos reales de esa actividad desde Cloudinary. Tres: con el título y la descripción de la ficha, escribe el post con la voz de Travelsats, en inglés y en 200 caracteres como máximo. Cuatro: según la rutina arma una placa con la marca o un carrusel de tres fotos, y lo deja en Postiz como borrador para X y para Nostr. Y cinco: me lo muestra terminado y me pregunta: ¿lo agendo o lo publico ya? Yo digo sí o no. Por eso la placa que preparó anoche sale a la mañana: la de Garganta del Diablo quedó agendada para hoy a las 10:30. Yo no armo el post: lo apruebo.</p>
+    <p class="notes-time">(1 min 15 s)</p>
+  </aside>
+</div>

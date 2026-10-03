@@ -1,0 +1,43 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+const autos = [
+  ['Placa diaria', 'Ridgeline', 'diaria'],
+  ['Carrusel de la tarde', 'Ridgeline', 'diaria'],
+  ['Bitcoin trends', 'Ridgeline', 'lun, mié y vie · 21:07'],
+  ['Telemetría de la app', 'Zhulong', 'lun a vie · 19:13, 21:13 y 23:13'],
+  ['Auditoría de dependencias', 'Hornero', 'nocturna'],
+  ['Review de arquitectura', 'Hornero', 'lunes · 20:52'],
+];
+const extra = [
+  ['Libélula', 'mi asistente principal: coordina al resto y me ayuda en el día a día'],
+  ['Bobi', 'mi asistente personal'],
+  ['Sifu', 'cultura y filosofía china para mi camino marcial'],
+  ['Charlas', 'como esta, desde el vault'],
+];
+---
+<div class="slide slide-auto">
+  <SlideShell number="11" total="15" label="Lo que ya está automatizado" />
+  <h2 class="hl auto-title">Lo que ya corre solo</h2>
+  <div class="auto-wrap">
+    <ul class="auto-grid">
+      {autos.map(([name, who, when]) => (
+        <li class={who === 'Ridgeline' ? 'auto-card auto-rl' : 'auto-card'}>
+          <strong class="auto-name">{name}</strong>
+          <span class="auto-who">{who}</span>
+          <span class="auto-when">{when}</span>
+        </li>
+      ))}
+    </ul>
+    <div class="auto-extra">
+      <p class="auto-extra-lbl">Y además del campamento</p>
+      <ul>
+        {extra.map(([n, d]) => (<li><strong>{n}</strong><span class="dim-txt">{d}</span></li>))}
+      </ul>
+    </div>
+  </div>
+  <p class="auto-rule">Todo corre de 19:00 a 23:59. Nada publica ni manda solo: termina en borrador o en aviso.</p>
+  <aside class="notes" data-time="1 min 15 s">
+    <p>Esto es lo que hoy corre solo, sin que yo lo pida. Tres rutinas son de Ridgeline: la placa diaria, el carrusel de la tarde y Bitcoin trends, que lunes, miércoles y viernes a las 21:07 mira de qué se habla en el mundo bitcoiner y lo conecta con un lugar de Argentina, con un tope de unos 20 centavos de dólar por corrida. Zhulong revisa de lunes a viernes, tres veces por noche, que travelsats.ar esté arriba y busca errores en producción en Vercel; solo avisa si hay algo para actuar. Hornero corre una auditoría nocturna de dependencias y los lunes una review de arquitectura. Un caso real: el 1 de octubre la auditoría detectó una vulnerabilidad crítica en Next, y al día siguiente ya estaba arreglada en un PR y en producción. La regla, desde el 15 de septiembre: lo automático corre de 19 a 23:59, y nada publica ni manda solo. Y fuera del campamento, Grok Bot me ayuda con otras cosas. Libélula es mi asistente principal: coordina al resto y me ayuda en el día a día, por ejemplo armando esta charla. Bobi es mi asistente personal. Sifu es mi guía de cultura y filosofía china para mi camino marcial: Choy Li Fut, Tai Chi y Qigong. Y las charlas, como esta, salen de notas del vault.</p>
+    <p class="notes-time">(1 min 15 s)</p>
+  </aside>
+</div>

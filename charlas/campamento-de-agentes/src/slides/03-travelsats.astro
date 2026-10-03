@@ -1,0 +1,15 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+import { asset } from '../lib/asset';
+---
+<div class="slide photo-slide slide-travelsats">
+  <img class="bg bw dim" src={asset('img/bg-cordillera.jpg')} alt="" />
+  <SlideShell number="03" total="15" label="Qué es Travelsats" />
+  <h2 class="hl hl-xl">Travelsats</h2>
+  <p class="sub">Una simple y poderosa herramienta para viajar por Argentina y pagar con Bitcoin</p>
+  <p class="mono-tag">travelsats.ar</p>
+  <aside class="notes" data-time="1 min">
+    <p>Travelsats conecta viajeros con guías y anfitriones locales, persona a persona, con Bitcoin. La idea es que el valor quede entre el que viaja y el que recibe, sin una capa gruesa de intermediarios. Tenemos tres caminos: Xplorer (el viajero), Baqueano (el guía local) y Agency. Y hay una línea que no cruzamos: no custodiamos fondos, no pedimos documentos, no nos metemos entre vos y la persona que viniste a conocer. Estado honesto: hoy el sitio es una waitlist. Todavía no lanzamos el beta, y eso va a importar más adelante cuando hable de lo que el contenido puede y no puede prometer. [dato a completar: cuánta gente hay en la waitlist, si querés decirlo]</p>
+    <p class="notes-time">(1 min)</p>
+  </aside>
+</div>

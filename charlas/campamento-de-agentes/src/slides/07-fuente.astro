@@ -1,0 +1,18 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+import { asset } from '../lib/asset';
+---
+<div class="slide photo-slide slide-fuente">
+  <img class="bg bw dim" src={asset('img/bg-traful.jpg')} alt="" />
+  <SlideShell number="07" total="15" label="La fuente: actividades reales" />
+  <h2 class="hl hl-lg">Contenido con fuente</h2>
+  <div class="stats">
+    <div class="stat"><span class="big-num">135</span><span class="stat-cap">actividades en la base</span></div>
+    <span class="stat-sep" aria-hidden="true">·</span>
+    <div class="stat"><span class="big-num">1.019</span><span class="stat-cap">fotos reales en la galería</span></div>
+  </div>
+  <aside class="notes" data-time="1 min">
+    <p>Un error común es pedirle a un modelo "escribime un post de viajes". Te da postales genéricas. Ridgeline no inventa: lee. Tenemos una base de datos en Supabase con el catálogo de actividades turísticas que viene de Lauke Tours: hoy son 135 actividades en cinco destinos: Mendoza, Bariloche, Malargüe, Villa La Angostura y San Rafael. Y en Cloudinary, nuestra galería, hay 1.019 fotos reales de esas actividades, migradas para no depender de un sitio externo que se puede caer. Cada post arranca de una ficha real: nombre, lugar, duración, qué incluye, y sus fotos. Además usamos las campañas de Travelsats como banco de contenido. Eso hace que el copy tenga datos concretos y que no tengamos que andar desmintiendo cosas. Y con 135 actividades, Ridgeline tiene material para meses sin repetir.</p>
+    <p class="notes-time">(1 min)</p>
+  </aside>
+</div>

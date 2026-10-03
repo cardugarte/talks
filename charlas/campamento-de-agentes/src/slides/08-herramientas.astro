@@ -1,0 +1,31 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+const tools = [
+  ['Postiz', 'Un gestor de redes sociales open source.', 'Nos sirve para gestionar las publicaciones: agendar, programar o publicar directo en X y Nostr.'],
+  ['X', 'Conector de la red donde vive @travelsats.', 'Los agentes buscan, leen menciones y tendencias, y miden impresiones.'],
+  ['Supabase', 'Base de datos Postgres en la nube.', 'Guarda el catálogo de actividades del que sale cada post.'],
+  ['Cloudinary', 'Banco de imágenes en la nube, con CDN.', 'Es nuestra galería de fotos reales de cada actividad.'],
+  ['ElevenLabs', 'Voz, efectos y música con IA, por MCP.', 'Pone la voz y el sonido de los videos promocionales.'],
+  ['Google Drive', 'Almacenamiento de archivos en la nube.', 'Ahí quedan los másteres de los videos para revisar y publicar.'],
+  ['Postfix en un VPS', 'Un servidor de correo propio.', 'Manda las publicaciones por mail, sin depender de un algoritmo.'],
+  ['Vercel', 'Hosting de la app travelsats.ar.', 'Su conector deja que un agente vigile errores y caídas.'],
+];
+---
+<div class="slide slide-tools">
+  <SlideShell number="08" total="15" label="Herramientas" />
+  <h2 class="hl tools-title">Herramientas que suman</h2>
+  <ul class="tool-grid">
+    {tools.map(([name, what, use]) => (
+      <li class="tool-card">
+        <strong class="tool-name">{name}</strong>
+        <span class="tool-what">{what}</span>
+        <span class="tool-use">{use}</span>
+      </li>
+    ))}
+  </ul>
+  <p class="tool-rec"><span class="tool-rec-lbl">Recomendación</span> Un VPS con <strong>Coolify</strong>: un PaaS self-hosted para deployar tus propios servicios.</p>
+  <aside class="notes" data-time="1 min 15 s">
+    <p>Estas son las herramientas que usa el campamento, y casi todas pasan por Ridgeline. Postiz es un gestor de redes open source: ahí Ridgeline deja los borradores y desde ahí se agenda, se programa o se publica directo en X y en Nostr. El conector de X le deja buscar, leer menciones y tendencias y medir impresiones. Supabase guarda el catálogo de actividades y Cloudinary es la galería de fotos. ElevenLabs, conectado por MCP, pone la voz, los efectos y la música de los videos promocionales, y los másteres quedan en Google Drive. Postfix en un VPS propio es nuestro servidor de correo para mandar las publicaciones por mail, sin depender del algoritmo de nadie. Y Vercel aloja la app, y un agente vigila ahí los errores. Un consejo: si vas a tener servicios propios, como Postfix o Postiz, conseguite un VPS con Coolify, que es un PaaS self-hosted: deployás tus servicios como en Vercel, pero en tu máquina y con tus reglas. [dato a completar: si querés, a quién le llegan hoy esos mails y con qué frecuencia]</p>
+    <p class="notes-time">(1 min 15 s)</p>
+  </aside>
+</div>

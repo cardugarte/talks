@@ -1,0 +1,21 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+import { asset } from '../lib/asset';
+---
+<div class="slide photo-slide slide-cover">
+  <img class="bg bw" src={asset('img/cover.jpg')} alt="" />
+  <SlideShell number="01" total="15" />
+  <img class="qr qr-cover" src={asset('img/qr-travelsats.svg')} alt="QR: redes de Travelsats" />
+  <div class="cover-copy">
+    <h1 class="hl hl-xl">Un campamento de agentes</h1>
+    <p class="sub">cómo Travelsats publica en RRSS todos los días con Grok Bot</p>
+    <div class="cover-meta">
+      <p class="meta">Carlos Dugarte · @LaZuricata</p>
+      <p class="meta meta-dim">Grok Bot Meetup Mendoza · 3 oct 2026</p>
+    </div>
+  </div>
+  <aside class="notes" data-time="30 s">
+    <p>Hola, ¿cómo andan? Soy Carlos, en X me encuentran como @LaZuricata. Fundé Travelsats, una startup de turismo con Bitcoin acá en Mendoza. Hoy no vengo a hablar de modelos ni de benchmarks. Vengo a contarles cómo una startup chiquita, que en la práctica soy yo, publica en redes todos los días. El truco es que no lo hago solo: tengo un campamento de agentes. Cada uno tiene nombre, rol y reglas. Les voy a mostrar cómo está armado, cómo trabaja Ridgeline, el agente que publica, qué más automatizamos y por qué hoy podés delegar casi todo para dedicarte a construir.</p>
+    <p class="notes-time">(30 s)</p>
+  </aside>
+</div>

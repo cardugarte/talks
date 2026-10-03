@@ -1,0 +1,32 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+const clis = [
+  ['gh', 'GitHub CLI', 'clonar, issues, PRs y protección de ramas'],
+  ['Grok Build', 'agente de código en la terminal', 'leer, cambiar y testear el código del proyecto'],
+  ['bun · pnpm', 'correr, testear, auditar', 'esta charla es un repo Astro que corre con bun'],
+  ['deploy', 'del branch a producción', 'solo con mi sí, nunca directo a main'],
+];
+---
+<div class="slide slide-term">
+  <SlideShell number="13" total="15" label="Una computadora en la nube" />
+  <h2 class="hl term-title">Una computadora en la nube. Y la terminal.</h2>
+  <div class="term-wrap">
+    <div class="term-box" aria-label="La computadora de Grok Bot">
+      <p class="term-head"><span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span></p>
+      <p class="term-line"><span class="term-prompt">$</span> gh repo clone cardugarte/travelsats.ar</p>
+      <p class="term-line"><span class="term-prompt">$</span> pnpm audit</p>
+      <p class="term-line"><span class="term-prompt">$</span> bun run build</p>
+      <p class="term-cap">Linux, persistente, compartida por todo el campamento</p>
+    </div>
+    <ul class="cli-list">
+      {clis.map(([name, what, use]) => (
+        <li><strong class="cli-name">{name}</strong><span class="cli-what">{what}</span><span class="cli-use">{use}</span></li>
+      ))}
+    </ul>
+  </div>
+  <p class="term-punch">Las CLIs son la interfaz de los agentes.</p>
+  <aside class="notes" data-time="1 min 15 s">
+    <p>Todo esto pasa en una computadora. Grok Bot tiene una computadora Linux en la nube, persistente, que comparten todos los agentes del campamento: los archivos, las herramientas instaladas y las sesiones quedan ahí de un día para el otro. Y la forma en que los agentes trabajan con código es la terminal. Con GitHub CLI, gh, Hornero clona el repo de la app, abre issues y PRs y respeta la protección de ramas: nada va directo a main. Con Grok Build, que es un agente de código en la terminal, se lee, se cambia y se testea el código del proyecto. Con pnpm auditamos dependencias y con bun corremos y testeamos. Esta misma charla es un repo Astro que se buildea con bun en esa computadora. Y el deploy a producción sale solo con mi sí. Mi conclusión: hoy las CLIs son protagonistas. Si una herramienta tiene CLI, un agente la puede usar como vos, y eso multiplica lo que podés delegar.</p>
+    <p class="notes-time">(1 min 15 s)</p>
+  </aside>
+</div>

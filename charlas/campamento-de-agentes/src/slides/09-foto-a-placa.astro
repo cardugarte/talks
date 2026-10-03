@@ -1,0 +1,21 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+import { asset } from '../lib/asset';
+---
+<div class="slide slide-placa">
+  <SlideShell number="09" total="15" label="Ejemplo real" />
+  <div class="placa-head">
+    <h2 class="hl hl-lg">De la foto a la placa</h2>
+    <p class="sub">Garganta del Diablo, Potrerillos</p>
+    <p class="mono-tag">Sale hoy, 10:30</p>
+  </div>
+  <div class="pair">
+    <img class="sq bw" src={asset('img/garganta-src.jpg')} alt="Foto fuente: Garganta del Diablo, Potrerillos" />
+    <span class="pair-arr" aria-hidden="true">→</span>
+    <img class="sq placa-img" src={asset('img/garganta-invite-1x1.jpg')} alt="Placa Travelsats modo Invite: Heading to Mendoza?" />
+  </div>
+  <aside class="notes" data-time="1 min">
+    <p>Este es un caso real, de hoy. A la izquierda, la foto de la actividad: Garganta del Diablo, un trekking con rappel de dieciocho metros en Potrerillos. A la derecha, la placa que armó el sistema: "Heading to Mendoza?", la actividad, un dato del lugar y "Full day". El caption que la acompaña es: "Got Mendoza lined up? Garganta del Diablo is a full day in Potrerillos. You trek the gorge first, then rappel eighteen meters where the rock keeps the cold. Ask in DM." Yo la aprobé y quedó programada para hoy a las 10:30. Si la buscan en @travelsats, ya está publicada. Nadie del equipo abrió un editor de imágenes.</p>
+    <p class="notes-time">(1 min)</p>
+  </aside>
+</div>

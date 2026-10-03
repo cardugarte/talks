@@ -1,0 +1,27 @@
+---
+import SlideShell from '@talks/shared/components/SlideShell.astro';
+const loop = [
+  ['Publica', 'Postiz en X y Nostr'],
+  ['Mide a las 24 h', 'impresiones, interacciones, clics al perfil'],
+  ['Compara', 'franjas y formatos, informe cada lunes'],
+  ['Sugiere', 'día y hora para cada post'],
+];
+---
+<div class="slide slide-loop">
+  <SlideShell number="12" total="15" label="El agente aprende" />
+  <h2 class="hl loop-title">Ridgeline aprende de sus números</h2>
+  <div class="loop-map">
+    <ol class="loop-row">
+      {loop.map(([what, detail], i) => (
+        <li class="loop-node"><span class="loop-n">{i + 1}</span><strong>{what}</strong><span class="loop-detail">{detail}</span></li>
+      ))}
+      <li class="loop-node loop-human"><span class="loop-n">5</span><strong>Carlos dice sí</strong><span class="loop-detail">y vuelve a empezar</span></li>
+    </ol>
+    <p class="loop-back"><span aria-hidden="true">↺</span> Se retroalimenta con lo que ve en X y en Postiz</p>
+  </div>
+  <p class="loop-test"><span class="loop-test-lbl">Test de horarios · 30/9 a 27/10</span> 9:17 · 13:17 · 18:47 · 21:17</p>
+  <aside class="notes" data-time="1 min 15 s">
+    <p>Lo último que armamos es que Ridgeline aprenda solo de sus números. Publica a través de Postiz en X y en Nostr. A las 24 horas mide cada post: impresiones, interacciones, tasa de interacción y clics al perfil, y marca aparte los que yo cité, porque esos vienen inflados. Cada lunes compara franjas y formatos y, con eso, me sugiere en qué día y a qué hora conviene publicar cada tipo de post. Yo digo sí y el ciclo arranca de nuevo, con más datos. Para tener datos de verdad estamos corriendo un test de cuatro semanas, del 30 de septiembre al 27 de octubre, que rota la placa, el carrusel y Bitcoin trends entre cuatro franjas: 9:17, 13:17, 18:47 y 21:17. El dato de arranque: las placas y los videos rinden, los carruseles quedan últimos. El test va a decir si es el horario o el formato. El agente no adivina cuándo publicar: lo mide.</p>
+    <p class="notes-time">(1 min 15 s)</p>
+  </aside>
+</div>
